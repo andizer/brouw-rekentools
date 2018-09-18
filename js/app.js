@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Calculation from "./composites/Calculation";
 
-const classNames = [
+export const classNames = [
     '_handleAlcoholPercentage',
     '_handleCorrectGravity',
     '_handleGravityToPlato',
@@ -11,17 +11,15 @@ const classNames = [
     '_handleFermentationRate',
 ];
 
+const App = ( { classNames } ) => {
+    return (
+        <div>
+            { classNames.map( className => {
+                return <Calculation type={ className.replace( '_handle', '' ) } />
+            } ) }
+        </div>
+    )
+};
 
-classNames.map(
-    ( className ) => {
-        let element = document.getElementById( className );
-        if ( element === null ) {
-            return;
-        }
 
-        ReactDOM.render(
-            <Calculation type={ className.replace( '_handle', '' ) } />,
-            element
-        );
-    }
-);
+ReactDOM.render( <App classNames={ classNames } />, document.getElementById( "app" ) );
