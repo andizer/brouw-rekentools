@@ -20,6 +20,7 @@ module.exports = {
 	},
 	devServer: {
 		contentBase: path.resolve( __dirname, "build" ),
+		port: 9000
 	},
 	plugins: [
 		new CopyWebpackPlugin( [ {
