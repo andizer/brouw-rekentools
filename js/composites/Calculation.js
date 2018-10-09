@@ -4,18 +4,13 @@ import { Provider } from 'react-redux';
 
 import calculations from '../redux/containers';
 import calculateStore from '../redux/store';
-import { reload } from '../redux/actions/reloadCalculation';
-
-const reloadCalculation = () => {
-    calculateStore.dispatch( reload() );
-};
 
 const Calculation = ( props ) => {
     const SpecificCalculation = calculations[ props.type ];
 
     return <React.Fragment>
         <Provider store={ calculateStore }>
-            <SpecificCalculation reload={ reloadCalculation } />
+            <SpecificCalculation />
         </Provider>
     </React.Fragment>;
 };

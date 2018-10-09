@@ -5,7 +5,6 @@ import Gravity from '../components/Gravity';
 import {
     FormGroup,
     StaticFormGroup,
-    FormGroupButton
 } from './form';
 
 import { calculateAlcoholPercentage } from "../calculation/alcoholPercentage";
@@ -44,7 +43,6 @@ const AlcoholPercentage = ( props ) => {
                 />
             </FormGroup>
             <StaticFormGroup id="alcoholResult" label="Alcoholpercentage" value={ result } />
-            <FormGroupButton onClick={ props.reload } value="Bereken alcoholpercentage" />
         </div>
     );
 };
