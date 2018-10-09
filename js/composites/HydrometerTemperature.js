@@ -60,7 +60,6 @@ CorrectGravity.propTypes = {
     setGravity: PropTypes.func.isRequired,
     setTemperature: PropTypes.func.isRequired,
     setCalibration: PropTypes.func.isRequired,
-    reload: PropTypes.func.isRequired,
     gravity: PropTypes.string,
     temperature: PropTypes.string,
     calibration: PropTypes.string,

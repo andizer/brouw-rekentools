@@ -50,7 +50,6 @@ const FermentationRate = ( props ) => {
 FermentationRate.propTypes = {
     setOriginal: PropTypes.func.isRequired,
     setFinal: PropTypes.func.isRequired,
-    reload: PropTypes.func.isRequired,
     original_gravity: PropTypes.string,
     final_gravity: PropTypes.string,
 };

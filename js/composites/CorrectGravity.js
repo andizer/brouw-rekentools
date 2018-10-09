@@ -64,7 +64,6 @@ CorrectGravity.propTypes = {
     setVolume: PropTypes.func.isRequired,
     setMeasuredGravity: PropTypes.func.isRequired,
     setTargetGravity: PropTypes.func.isRequired,
-    reload: PropTypes.func.isRequired,
     volume: PropTypes.string,
     measured_gravity: PropTypes.string,
     target_gravity: PropTypes.string,
