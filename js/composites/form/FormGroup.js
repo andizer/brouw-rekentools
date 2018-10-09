@@ -5,11 +5,14 @@ import { Label } from "../../components";
 
 const FormGroup = ( props ) => {
     return (
-        <div className="form-group">
+        <div className={ "form-group " + props.contextualClass } >
             <Label className="col-sm-4 control-label" htmlFor={ props.id } value={ props.label } />
             <div className="col-sm-8">
                 { props.children }
             </div>
+            { props.help && <div id={ "help-" + props.id } className="help-block col-sm-8 col-sm-offset-4">
+                { props.help }
+            </div> }
         </div>
     );
 };
@@ -17,6 +20,13 @@ const FormGroup = ( props ) => {
 FormGroup.propTypes = {
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
+    help: PropTypes.string,
+    contextualClass: PropTypes.string,
+};
+
+FormGroup.defaultProps = {
+    help: "",
+    contextualClass: ""
 };
 
 export default FormGroup;

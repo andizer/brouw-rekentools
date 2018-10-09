@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 import { gravityRanges } from "../helpers/gravity";
 import NumberField from "./NumberField";
 
-const Gravity = ( props ) => {
+export const GravityHelp = "De waarde SG moet liggen tussen de " + gravityRanges.min + " en " + gravityRanges.max + ".";
+
+export const Gravity = ( props ) => {
     return (
         <NumberField
             min={ gravityRanges.min }
@@ -15,6 +17,7 @@ const Gravity = ( props ) => {
             name={props.name}
             value={ props.gravity }
             placeholder={props.placeholder}
+            ariaDescribedby={ props.describedBy }
         />
     );
 };
@@ -26,11 +29,13 @@ Gravity.propTypes = {
     gravity: PropTypes.string.isRequired,
     className: PropTypes.string,
     placeholder: PropTypes.string,
+    describedBy: PropTypes.string,
 };
 
 Gravity.defaultProps = {
     className: "",
     placeholder: "",
+    describedBy: "",
 };
 
 export default Gravity;
