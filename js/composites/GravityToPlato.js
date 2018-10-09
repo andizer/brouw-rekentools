@@ -5,7 +5,7 @@ import { convertGravityPlato } from "../calculation/gravity";
 import { Gravity } from "../components";
 
 const GravityToPlato = ( props ) => {
-    const { setGravity, gravity, reload } = props;
+    const { setGravity, gravity } = props;
     const result = convertGravityPlato( props.gravity );
 
     return (
@@ -27,7 +27,6 @@ const GravityToPlato = ( props ) => {
 
 GravityToPlato.propTypes = {
     setGravity: PropTypes.func.isRequired,
-    reload: PropTypes.func.isRequired,
     gravity: PropTypes.string,
 };
 
