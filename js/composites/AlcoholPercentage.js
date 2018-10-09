@@ -14,7 +14,12 @@ const calculate = ( original_gravity, final_gravity ) => {
         return '';
     }
 
-    return calculateAlcoholPercentage( original_gravity, final_gravity );
+    const alcoholPercentage = calculateAlcoholPercentage( original_gravity, final_gravity );
+    if ( alcoholPercentage !== '' ) {
+        return alcoholPercentage + "%";
+    }
+
+    return '';
 };
 
 const AlcoholPercentage = ( props ) => {
@@ -22,26 +27,26 @@ const AlcoholPercentage = ( props ) => {
 
     return (
         <div className="form-horizontal">
-            <FormGroup id="alcohol-begin" label="Begin meting" help={ GravityHelp }>
+            <FormGroup id="original_gravity" label="Begin meting" help={ GravityHelp }>
                 <Gravity
                     className="form-control"
-                    id="alcohol-begin"
-                    name='begin'
+                    id="original_gravity"
+                    name='original_gravity'
                     onChange={ props.setOriginal }
                     gravity={props.original_gravity}
                     placeholder="Begin meting"
-                    describedBy={ "help-alcohol-begin" }
+                    describedBy={ "help-original_gravity" }
                 />
             </FormGroup>
-            <FormGroup id="alcohol-end" label="Eind meting" help={ GravityHelp }>
+            <FormGroup id="final_gravity" label="Eind meting" help={ GravityHelp }>
                 <Gravity
                     className="form-control"
-                    id='alcohol-end'
-                    name='eind'
+                    id='final_gravity'
+                    name='final_gravity'
                     onChange={ props.setFinal }
                     gravity={props.final_gravity}
                     placeholder="Eind meting"
-                    describedBy={ "help-alcohol-end" }
+                    describedBy={ "help-final_gravity" }
                 />
             </FormGroup>
             <StaticFormGroup id="alcoholResult" label="Alcoholpercentage" value={ result } />

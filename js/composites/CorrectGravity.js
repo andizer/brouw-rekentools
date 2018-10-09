@@ -13,7 +13,22 @@ const calculate = ( volume, measured_gravity, target_gravity ) => {
         return '';
     }
 
-    return calculateGravityCorrection( volume, measured_gravity, target_gravity );
+    let result = calculateGravityCorrection( volume, measured_gravity, target_gravity );
+
+    if ( result === '' ) {
+       return '';
+    }
+
+    switch( result.action ) {
+        case 'do_nothing' :
+            return "Het SG komt overeen met het doel SG.";
+        case "add_water" :
+            return "Voeg " + result.amount  + " liter water toe om het SG te verlagen.";
+        case "add_sugar" :
+            return "Voeg " + result.amount + " gram suiker toe om het SG te verhogen.";
+    }
+
+    return '';
 };
 
 const CorrectGravity = ( props ) => {

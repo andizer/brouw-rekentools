@@ -14,7 +14,12 @@ const calculate = ( original_gravity, final_gravity ) => {
         return '';
     }
 
-    return calculateAttenuation( original_gravity, final_gravity );
+    const result = calculateAttenuation( original_gravity, final_gravity );
+    if ( result === '' ) {
+        return '';
+    }
+
+    return result + "%";
 };
 
 const FermentationRate = ( props ) => {

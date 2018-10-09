@@ -16,5 +16,5 @@ export const calculateAlcoholPercentage = ( beginValue, endValue ) => {
         return '';
     }
 
-    return formatNumber( result ) + '%';
+    return formatNumber( result );
 };

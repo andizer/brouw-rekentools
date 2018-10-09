@@ -7,7 +7,11 @@ import {GravityHelp} from "../components/Gravity";
 
 const GravityToPlato = ( props ) => {
     const { setGravity, gravity } = props;
-    const result = convertGravityPlato( props.gravity );
+    let result = convertGravityPlato( props.gravity );
+
+    if ( result !== '' ) {
+        result += '°Plato';
+    }
 
     return (
         <div className="form-horizontal">
