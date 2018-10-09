@@ -12,6 +12,7 @@ const NumberField = ( props ) => {
             placeholder={props.placeholder}
             min={props.min}
             max={props.max}
+            aria-describedby={ props.describedBy }
         />
     );
 };
