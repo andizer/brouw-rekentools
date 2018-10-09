@@ -14,7 +14,12 @@ const calculate = ( original_gravity, final_gravity ) => {
         return '';
     }
 
-    return calculateAlcoholPercentage( original_gravity, final_gravity );
+    const alcoholPercentage = calculateAlcoholPercentage( original_gravity, final_gravity );
+    if ( alcoholPercentage !== '' ) {
+        return alcoholPercentage + "%";
+    }
+
+    return '';
 };
 
 const AlcoholPercentage = ( props ) => {
