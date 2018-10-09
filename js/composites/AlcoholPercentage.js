@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Gravity from '../components/Gravity';
+import Gravity, { GravityHelp } from '../components/Gravity';
 import {
     FormGroup,
     StaticFormGroup,
@@ -22,7 +22,7 @@ const AlcoholPercentage = ( props ) => {
 
     return (
         <div className="form-horizontal">
-            <FormGroup id="alcohol-begin" label="Begin meting">
+            <FormGroup id="alcohol-begin" label="Begin meting" help={ GravityHelp }>
                 <Gravity
                     className="form-control"
                     id="alcohol-begin"
@@ -30,9 +30,10 @@ const AlcoholPercentage = ( props ) => {
                     onChange={ props.setOriginal }
                     gravity={props.original_gravity}
                     placeholder="Begin meting"
+                    describedBy={ "help-alcohol-begin" }
                 />
             </FormGroup>
-            <FormGroup id="alcohol-end" label="Eind meting">
+            <FormGroup id="alcohol-end" label="Eind meting" help={ GravityHelp }>
                 <Gravity
                     className="form-control"
                     id='alcohol-end'
@@ -40,6 +41,7 @@ const AlcoholPercentage = ( props ) => {
                     onChange={ props.setFinal }
                     gravity={props.final_gravity}
                     placeholder="Eind meting"
+                    describedBy={ "help-alcohol-end" }
                 />
             </FormGroup>
             <StaticFormGroup id="alcoholResult" label="Alcoholpercentage" value={ result } />

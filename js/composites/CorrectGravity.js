@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Gravity from '../components/Gravity';
+import Gravity, {GravityHelp} from '../components/Gravity';
 import NumberField from "../components/NumberField";
 
 import { FormGroup, StaticFormGroup } from './form';
@@ -23,7 +23,7 @@ const CorrectGravity = ( props ) => {
 
     return (
         <div className="form-horizontal">
-            <FormGroup id="volume" label="Volume in liters">
+            <FormGroup id="volume" label="Volume in liters" help="De waarde liters moet liggen tussen de 1 en 500." >
                 <NumberField
                     className="form-control"
                     id="volume"
@@ -33,9 +33,10 @@ const CorrectGravity = ( props ) => {
                     placeholder="Volume in liters"
                     min="1"
                     max="500"
+                    describedBy={ "help-volume" }
                 />
             </FormGroup>
-            <FormGroup id="measured_gravity" label="Gemeten SG">
+            <FormGroup id="measured_gravity" label="Gemeten SG" help={ GravityHelp }>
                 <Gravity
                     className="form-control"
                     id="measured_gravity"
@@ -43,9 +44,10 @@ const CorrectGravity = ( props ) => {
                     onChange={ props.setMeasuredGravity }
                     gravity={ props.measured_gravity }
                     placeholder="Gemeten SG"
+                    describedBy={ "help-measured_gravity" }
                 />
             </FormGroup>
-            <FormGroup id="target_gravity" label="Doel SG">
+            <FormGroup id="target_gravity" label="Doel SG" help={ GravityHelp }>
                 <Gravity
                     className="form-control"
                     id="target_gravity"
@@ -53,6 +55,7 @@ const CorrectGravity = ( props ) => {
                     onChange={ props.setTargetGravity }
                     gravity={ props.target_gravity }
                     placeholder="Doel SG"
+                    describedBy={ "help-target_gravity" }
                 />
             </FormGroup>
             <StaticFormGroup id="correctGravityResult" label="Wat te doen" value={ result } />

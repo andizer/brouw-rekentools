@@ -5,6 +5,8 @@ import { Gravity, Temperature } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
 
 import { correctHydrometerTemperature } from "../calculation/correctHydrometerTemperature";
+import {TemperatureHelp} from "../components/Temperature";
+import {GravityHelp} from "../components/Gravity";
 
 const calculate = ( gravity, temperature, calibration ) => {
     if ( gravity === '' || temperature === '' || calibration === '' ) {
@@ -21,7 +23,7 @@ const CorrectGravity = ( props ) => {
 
     return (
         <div className="form-horizontal">
-            <FormGroup id="gravity" label="Gemeten SG">
+            <FormGroup id="gravity" label="Gemeten SG" help={ GravityHelp } >
                 <Gravity
                     className="form-control"
                     id="gravity"
@@ -29,9 +31,10 @@ const CorrectGravity = ( props ) => {
                     onChange={ props.setGravity }
                     gravity={ props.gravity }
                     placeholder="Gemeten SG"
+                    describedBy={ "help-gravity" }
                 />
             </FormGroup>
-            <FormGroup id="temperature" label="Temperatuur tijdens meting">
+            <FormGroup id="temperature" label="Temperatuur tijdens meting" help={ TemperatureHelp } >
                 <Temperature
                     className="form-control"
                     id="temperature"
@@ -39,9 +42,10 @@ const CorrectGravity = ( props ) => {
                     onChange={ props.setTemperature }
                     temperature={ props.temperature }
                     placeholder="Temperatuur tijdens meting (celsius)"
+                    describedBy={ "help-temperature" }
                 />
             </FormGroup>
-            <FormGroup id="calibration" label="Gekalibreerde temperatuur">
+            <FormGroup id="calibration" label="Gekalibreerde temperatuur" help={ TemperatureHelp }>
                 <Temperature
                     className="form-control"
                     id="calibration"
@@ -49,6 +53,7 @@ const CorrectGravity = ( props ) => {
                     onChange={ props.setCalibration }
                     temperature={ props.calibration }
                     placeholder="Gekalibreerde temperatuur (celsius)"
+                    describedBy={ "help-calibration" }
                 />
             </FormGroup>
             <StaticFormGroup id="correctHydrometerTemperatureResult" label="Bijgesteld SG" value={ result } />
