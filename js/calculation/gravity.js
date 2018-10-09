@@ -86,7 +86,7 @@ export const calculateFinalGravity = ( gravity, attenuation ) => {
 };
 
 /**
- * Converts the given value to Plato.
+ * Converts the given SG value to Plato.
  *
  * @param gravity
  *
