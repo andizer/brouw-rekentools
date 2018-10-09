@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import NumberField from "./NumberField";
-import { temperatureRanges}  from "../helpers/temperature";
+import { temperatureRanges }  from "../helpers/temperature";
+
+export const TemperatureHelp = "De waarde celsius moet liggen tussen de " + temperatureRanges.min + " en " + temperatureRanges.max + ".";
 
 const Temperature = ( props ) => {
     return (
@@ -15,6 +17,7 @@ const Temperature = ( props ) => {
             name={props.name}
             value={ props.temperature }
             placeholder={props.placeholder}
+            describedBy={ props.describedBy }
         />
     );
 };
@@ -26,11 +29,13 @@ Temperature.propTypes = {
     temperature: PropTypes.string.isRequired,
     className: PropTypes.string,
     placeholder: PropTypes.string,
+    describedBy: PropTypes.string,
 };
 
 Temperature.defaultProps = {
     className: "",
     placeholder: "",
+    describedBy: "",
 };
 
 export default Temperature;

@@ -17,7 +17,7 @@ export const Gravity = ( props ) => {
             name={props.name}
             value={ props.gravity }
             placeholder={props.placeholder}
-            ariaDescribedby={ props.describedBy }
+            describedBy={ props.describedBy }
         />
     );
 };
