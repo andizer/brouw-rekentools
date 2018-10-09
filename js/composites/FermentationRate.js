@@ -5,7 +5,6 @@ import Gravity from '../components/Gravity';
 import {
     FormGroup,
     StaticFormGroup,
-    FormGroupButton
 } from './form';
 
 import { calculateAttenuation } from "../calculation/gravity";
@@ -44,7 +43,6 @@ const FermentationRate = ( props ) => {
                 />
             </FormGroup>
             <StaticFormGroup id="fermentationRate" label="Vergistingsgraad" value={ result } />
-            <FormGroupButton onClick={ props.reload } value="Bereken vergistingsgraad" />
         </div>
     );
 };

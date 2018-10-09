@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { Gravity, Temperature } from '../components';
-import { FormGroup, StaticFormGroup, FormGroupButton } from './form';
+import { FormGroup, StaticFormGroup } from './form';
 
 import { correctHydrometerTemperature } from "../calculation/correctHydrometerTemperature";
 
@@ -52,7 +52,6 @@ const CorrectGravity = ( props ) => {
                 />
             </FormGroup>
             <StaticFormGroup id="correctHydrometerTemperatureResult" label="Bijgesteld SG" value={ result } />
-            <FormGroupButton onClick={ props.reload } value="Corrigeer gemeten SG waarde" />
         </div>
     );
 };

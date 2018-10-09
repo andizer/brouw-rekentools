@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FormGroup, StaticFormGroup, FormGroupButton } from './form';
+import { FormGroup, StaticFormGroup } from './form';
 import { convertGravityPlato } from "../calculation/gravity";
 import { Gravity } from "../components";
 
@@ -21,7 +21,6 @@ const GravityToPlato = ( props ) => {
                 />
             </FormGroup>
             <StaticFormGroup id="platoResult" label="Stamwortgehalte" value={ result } />
-            <FormGroupButton onClick={ reload } value="Bereken stamwortgehalte" />
         </div>
     );
 };

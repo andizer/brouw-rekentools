@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Gravity from '../components/Gravity';
 import NumberField from "../components/NumberField";
 
-import { FormGroup, StaticFormGroup, FormGroupButton } from './form';
+import { FormGroup, StaticFormGroup } from './form';
 
 import { calculateGravityCorrection } from "../calculation/gravity";
 
@@ -56,7 +56,6 @@ const CorrectGravity = ( props ) => {
                 />
             </FormGroup>
             <StaticFormGroup id="correctGravityResult" label="Wat te doen" value={ result } />
-            <FormGroupButton onClick={ props.reload } value="Bereken SG correctie" />
         </div>
     );
 };
