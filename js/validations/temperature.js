@@ -1,5 +1,6 @@
 /**
  * These are the ranges which will make sense.
+ *
  * @type {{min: number, max: number}}
  */
 export const temperatureRanges = {
@@ -11,6 +12,6 @@ export const temperatureIsInRange =( value ) => {
     return ( value >= temperatureRanges.min && value <= temperatureRanges.max );
 };
 
-export const celsiusToFahrenheit = ( temperatureInCelsius ) => {
-    return ( temperatureInCelsius * 1.8 ) + 32;
+export const validateTemperature = ( temperature ) => {
+    return ( temperature !== '' && temperatureIsInRange( temperature ) );
 };

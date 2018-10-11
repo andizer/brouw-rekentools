@@ -1,22 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Gravity, { GravityHelp } from '../components/Gravity';
-import {
-    FormGroup,
-    StaticFormGroup,
-} from './form';
+import { Gravity, GravityHelp } from '../components';
+import { FormGroup, StaticFormGroup } from './form';
+import { calculateAlcoholPercentage } from "../calculation";
+import { formatAsFloat, formatNumber } from "../helpers/format";
+import { gravityHasProgress } from "../validations";
 
-import { calculateAlcoholPercentage } from "../calculation/alcoholPercentage";
+const calculate = ( originalGravity, finalGravity ) => {
+    originalGravity = formatAsFloat( originalGravity );
+    finalGravity    = formatAsFloat( finalGravity );
 
-const calculate = ( original_gravity, final_gravity ) => {
-    if ( original_gravity === '' || final_gravity === '' ) {
+    if ( ! gravityHasProgress( originalGravity, finalGravity ) ) {
         return '';
     }
 
-    const alcoholPercentage = calculateAlcoholPercentage( original_gravity, final_gravity );
-    if ( alcoholPercentage !== '' ) {
-        return alcoholPercentage + "%";
+    const alcoholPercentage = calculateAlcoholPercentage( originalGravity, finalGravity );
+    if ( ! isNaN( alcoholPercentage ) ) {
+        return formatNumber( alcoholPercentage ) + "%";
     }
 
     return '';

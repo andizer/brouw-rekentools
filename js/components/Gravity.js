@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { gravityRanges } from "../helpers/gravity";
+import { gravityRanges } from "../validations";
 import NumberField from "./NumberField";
 
 export const GravityHelp = "De waarde SG moet liggen tussen de " + gravityRanges.min + " en " + gravityRanges.max + ".";
