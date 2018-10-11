@@ -1,15 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Gravity, {GravityHelp} from '../components/Gravity';
-import NumberField from "../components/NumberField";
-
+import { Gravity, GravityHelp, NumberField } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
-
-import { calculateGravityCorrection } from "../calculation/gravity";
+import { calculateGravityCorrection } from "../calculation";
+import {formatAsFloat, formatNumber} from "../helpers/format";
+import { validateGravity } from "../validations";
 
 const calculate = ( volume, measured_gravity, target_gravity ) => {
-    if ( volume === '' || measured_gravity === '' || target_gravity === '' ) {
+    volume           = formatAsFloat( volume );
+    measured_gravity = formatAsFloat( measured_gravity );
+    target_gravity   = formatAsFloat( target_gravity );
+
+    if ( volume === '' || volume < 1 || volume > 500 ) {
+        return '';
+    }
+
+    if ( ! validateGravity( measured_gravity ) || ! validateGravity( target_gravity ) ) {
         return '';
     }
 
@@ -23,9 +30,15 @@ const calculate = ( volume, measured_gravity, target_gravity ) => {
         case 'do_nothing' :
             return "Het SG komt overeen met het doel SG.";
         case "add_water" :
-            return "Voeg " + result.amount  + " liter water toe om het SG te verlagen.";
+            if ( ! isNaN( result.amount ) ) {
+                return "Voeg " + formatNumber( result.amount ) + " liter water toe om het SG te verlagen.";
+            }
+            break;
         case "add_sugar" :
-            return "Voeg " + result.amount + " gram suiker toe om het SG te verhogen.";
+            if ( ! isNaN( result.amount ) ) {
+                return "Voeg " + Math.round( result.amount ) + " gram suiker toe om het SG te verhogen.";
+            }
+            break;
     }
 
     return '';

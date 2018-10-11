@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import NumberField from "./NumberField";
-import { temperatureRanges }  from "../helpers/temperature";
+import { temperatureRanges }  from "../validations";
 
 export const TemperatureHelp = "De waarde celsius moet liggen tussen de " + temperatureRanges.min + " en " + temperatureRanges.max + ".";
 

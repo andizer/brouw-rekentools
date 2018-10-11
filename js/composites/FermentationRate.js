@@ -1,25 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Gravity, {GravityHelp} from '../components/Gravity';
-import {
-    FormGroup,
-    StaticFormGroup,
-} from './form';
+import { Gravity, GravityHelp } from '../components';
+import { FormGroup, StaticFormGroup } from './form';
+import { calculateAttenuation } from "../calculation";
+import { formatAsFloat, formatNumber } from "../helpers/format";
+import { gravityHasProgress } from "../validations";
 
-import { calculateAttenuation } from "../calculation/gravity";
+const calculate = ( originalGravity, finalGravity ) => {
+    originalGravity = formatAsFloat( originalGravity );
+    finalGravity    = formatAsFloat( finalGravity );
 
-const calculate = ( original_gravity, final_gravity ) => {
-    if ( original_gravity === '' || final_gravity === '' ) {
+    if ( ! gravityHasProgress( originalGravity, finalGravity ) ) {
         return '';
     }
 
-    const result = calculateAttenuation( original_gravity, final_gravity );
-    if ( result === '' ) {
-        return '';
+    const result = calculateAttenuation( originalGravity, finalGravity );
+    if ( ! isNaN( result ) ) {
+        return formatNumber( result ) + '%';
     }
 
-    return result + "%";
+    return '';
 };
 
 const FermentationRate = ( props ) => {

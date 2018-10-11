@@ -1,19 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Gravity, Temperature } from '../components';
+import { Gravity, GravityHelp, Temperature, TemperatureHelp } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
-
-import { correctHydrometerTemperature } from "../calculation/correctHydrometerTemperature";
-import {TemperatureHelp} from "../components/Temperature";
-import {GravityHelp} from "../components/Gravity";
+import { correctHydrometerTemperature } from "../calculation";
+import { formatAsFloat } from "../helpers/format";
+import { validateTemperature, validateGravity } from "../validations";
 
 const calculate = ( gravity, temperature, calibration ) => {
-    if ( gravity === '' || temperature === '' || calibration === '' ) {
+    gravity     = formatAsFloat( gravity );
+    temperature = formatAsFloat( temperature );
+    calibration = formatAsFloat( calibration );
+
+    if ( ! validateGravity( gravity ) || ! validateTemperature( temperature ) || ! validateTemperature( calibration ) ) {
         return '';
     }
 
-    return correctHydrometerTemperature( gravity, temperature, calibration );
+    const result = correctHydrometerTemperature( gravity, temperature, calibration );
+
+    if ( isNaN( result ) ) {
+        return '';
+    }
+
+    return Math.round( result ).toString();
 };
 
 const CorrectGravity = ( props ) => {

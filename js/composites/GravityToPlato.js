@@ -1,17 +1,32 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import { FormGroup, StaticFormGroup } from './form';
-import { convertGravityPlato } from "../calculation/gravity";
-import { Gravity } from "../components";
-import {GravityHelp} from "../components/Gravity";
+import { convertGravityPlato } from "../calculation";
+import { Gravity, GravityHelp } from "../components";
+import { formatAsFloat } from "../helpers/format";
+import { validateGravity } from "../validations";
+
+const calculate = ( gravity ) => {
+    gravity = formatAsFloat( gravity );
+
+    if ( ! validateGravity( gravity ) ) {
+        return '';
+    }
+
+    const result = convertGravityPlato( gravity );
+
+    if ( isNaN( result ) ) {
+        return '';
+    }
+
+    return result + '°Plato';
+};
+
 
 const GravityToPlato = ( props ) => {
     const { setGravity, gravity } = props;
-    let result = convertGravityPlato( props.gravity );
-
-    if ( result !== '' ) {
-        result += '°Plato';
-    }
+    const result = calculate( props.gravity );
 
     return (
         <div className="form-horizontal">
