@@ -5,9 +5,8 @@ import { FormGroup, } from './form';
 
 import { convertColor } from "../calculation";
 import { NumberField } from "../components";
-import {formatAsFloat, formatNumber} from "../helpers/format";
-import { validateGravity } from "../validations";
-import {SCALE_EBC, SCALE_LOVIBOND, SCALE_SRM} from "../calculation/convertColor";
+import { SCALE_EBC, SCALE_LOVIBOND, SCALE_SRM } from "../calculation/convertColor";
+import { convertToFloat, roundNumber} from "../helpers/format";
 
 const determineCurrentScale = ( colorEBC, colorLovibond, colorSRM ) => {
     if ( colorEBC !== '' ) {
@@ -25,38 +24,55 @@ const determineCurrentScale = ( colorEBC, colorLovibond, colorSRM ) => {
     return null;
 };
 
-
-const ColorConvert = ( props ) => {
+const Calculate = ( props ) => {
     let { colorEBC, colorLovibond, colorSRM } = props;
-
     const currentScale = determineCurrentScale( colorEBC, colorLovibond, colorSRM );
+
+    if ( currentScale === null ) {
+       return props;
+    }
 
     switch( currentScale ) {
         case SCALE_EBC :
-            colorEBC = parseFloat( colorEBC.replace( ",", "." ) );
+            colorEBC = convertToFloat( colorEBC );
+
+            if ( colorEBC === '' || colorEBC < 0 ) {
+                return props;
+            }
+
             colorLovibond = convertColor( SCALE_EBC, SCALE_LOVIBOND, colorEBC );
             colorSRM = convertColor( SCALE_EBC, SCALE_SRM, colorEBC );
             break;
         case SCALE_LOVIBOND :
-            colorLovibond = parseFloat( colorLovibond.replace( ",", "." ) );
+
+            colorLovibond = convertToFloat( colorLovibond );
+            if ( colorEBC < 0 ) {
+                return props;
+            }
+
             colorEBC = convertColor( SCALE_LOVIBOND, SCALE_EBC, colorLovibond );
             colorSRM = convertColor( SCALE_LOVIBOND, SCALE_SRM, colorLovibond );
             break;
         case SCALE_SRM :
-            colorSRM = parseFloat( colorSRM.replace( ",", "." ) );
+            colorSRM = convertToFloat( colorSRM );
+            if ( colorSRM < 0 ) {
+                return props;
+            }
+
             colorEBC = convertColor( SCALE_SRM, SCALE_EBC, colorSRM );
             colorLovibond = convertColor( SCALE_SRM, SCALE_LOVIBOND, colorSRM );
-
             break;
     }
 
-    if ( currentScale ) {
-        colorEBC = Math.round(colorEBC * 100) / 100;
-        colorLovibond = Math.round(colorLovibond * 100) / 100;
-        colorSRM = Math.round(colorSRM * 100) / 100;
+    return {
+        colorEBC: roundNumber( colorEBC  ),
+        colorLovibond: roundNumber( colorLovibond  ),
+        colorSRM: roundNumber( colorSRM  ),
+    };
+};
 
-    }
-
+const ColorConvert = ( props ) => {
+    let { colorEBC, colorLovibond, colorSRM } = Calculate( props );
 
     return (
         <div className="form-horizontal">
@@ -68,10 +84,11 @@ const ColorConvert = ( props ) => {
                     onChange={ props.setColorEBC }
                     value={ colorEBC }
                     placeholder="EBC"
+                    min="0"
 
                 />
             </FormGroup>
-            <FormGroup id="color-lovibond" label="Lovibond" >
+            <FormGroup id="color-lovibond" label="°L (Lovibond)" >
                 <NumberField
                     className="form-control"
                     id="color-lovibond"
@@ -79,6 +96,7 @@ const ColorConvert = ( props ) => {
                     onChange={ props.setColorLovibond }
                     value={ colorLovibond }
                     placeholder="Lovibond"
+                    min="0"
 
                 />
             </FormGroup>
@@ -90,7 +108,7 @@ const ColorConvert = ( props ) => {
                     onChange={ props.setColorSRM }
                     value={ colorSRM }
                     placeholder="SRM"
-
+                    min="0"
                 />
             </FormGroup>
         </div>

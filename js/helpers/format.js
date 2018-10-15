@@ -6,7 +6,8 @@
  * @returns string The converted value.
  */
 export const formatAsFloat = ( value ) => {
-    value = parseFloat( value.replace(/\D/g,'') );
+    value = value.replace(/\D/g,'');
+    value = parseFloat( value );
 
     if ( isNaN( value ) ) {
         return '';
@@ -23,4 +24,12 @@ export const formatNumber = ( number ) => {
             maximumFractionDigits: 2
         }
     );
+};
+
+export const convertToFloat = ( number ) => {
+    return parseFloat( number.replace( ",", "." ) );
+};
+
+export const roundNumber = ( number ) => {
+    return Math.round( number * 100 ) / 100;
 };
