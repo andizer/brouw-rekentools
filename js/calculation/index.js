@@ -7,6 +7,7 @@ import { correctHydrometerTemperature } from "./correctHydrometerTemperature";
 import { getGravityPoints } from "./getGravityPoints";
 import { calculateGravityCorrection } from "./gravityCorrection";
 import { normalizeGravity } from "./normalizeGravity";
+import { convertColor } from "./convertColor";
 
 export {
     calculateAlcoholPercentage,
@@ -18,4 +19,5 @@ export {
     getGravityPoints,
     calculateGravityCorrection,
     normalizeGravity,
+    convertColor,
 }
