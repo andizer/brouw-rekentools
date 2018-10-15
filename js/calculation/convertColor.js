@@ -4,44 +4,40 @@ export const SCALE_LOVIBOND = "LOVIBOND";
 export const SCALE_SRM = "SRM";
 
 export const convertColor = ( currentScale, targetScale, value ) => {
-    if ( currentScale === SCALE_EBC ) {
-        if ( targetScale === SCALE_SRM ) {
-            // EBC to SRM.
-            return value * 0.508;
-        }
+    switch ( currentScale ) {
+        case SCALE_EBC :
+            if ( targetScale === SCALE_SRM ) {
+                return value * 0.508;
+            }
 
-        if ( targetScale === SCALE_LOVIBOND ) {
-            // EBC to Lovibond.
-            return ( value * 0.375 ) + 0.56;
-        }
+            if ( targetScale === SCALE_LOVIBOND ) {
+                return ( value * 0.375 ) + 0.56;
+            }
+
+            break;
+
+        case SCALE_SRM :
+            if ( targetScale === SCALE_EBC  ) {
+                return value * 1.97;
+            }
+
+            if ( targetScale === SCALE_LOVIBOND ) {
+                return ( value + 0.76 ) / 1.3546;
+            }
+
+            break;
+        case SCALE_LOVIBOND :
+            if ( targetScale === SCALE_SRM ) {
+                return ( 1.3546 * value ) - 0.76;
+            }
+
+            if ( targetScale === SCALE_EBC ) {
+                return ( value - 0.56 ) / 0.375;
+            }
+        break;
     }
 
-    if ( currentScale === SCALE_SRM ) {
-        if ( targetScale === SCALE_EBC  ) {
-            // SRM to EBC.
-            return value * 1.97;
-        }
-
-        if ( targetScale === SCALE_LOVIBOND ) {
-            // SRM to Lovibond.
-            return ( value + 0.76 ) / 1.3546;
-        }
-    }
-
-    if ( currentScale === SCALE_LOVIBOND ) {
-        if ( targetScale === SCALE_SRM ) {
-            // Lovibond to SRM.
-            return ( 1.3546 * value ) - 0.76;
-        }
-
-        if ( targetScale === SCALE_EBC ) {
-            // Lovibond to EBC
-            return ( value - 0.56 ) / 0.375;
-            // return ( value * 0.375 ) + 0.56;
-        }
-    }
-
-    throw "Unknown Conversion";
+    throw "Unknown conversion";
 };
 
 /*
