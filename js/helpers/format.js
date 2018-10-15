@@ -16,8 +16,8 @@ export const formatAsFloat = ( value ) => {
     return value;
 };
 
-export const formatNumber = ( number ) => {
-    return number.toLocaleString(
+export const formatNumber = ( value ) => {
+    return value.toLocaleString(
         'nl-NL',
         {
             minimumFractionDigits: 2,
@@ -26,10 +26,10 @@ export const formatNumber = ( number ) => {
     );
 };
 
-export const convertToFloat = ( number ) => {
-    return parseFloat( number.replace( ",", "." ) );
+export const convertToFloat = ( value ) => {
+    return parseFloat( value.replace( ",", "." ) );
 };
 
-export const roundNumber = ( number ) => {
-    return Math.round( number * 100 ) / 100;
+export const roundNumber = ( value ) => {
+    return Math.round( value * 100 ) / 100;
 };

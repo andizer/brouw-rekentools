@@ -4,6 +4,7 @@ import Label from "./Label";
 import NumberField from "./NumberField";
 import StaticField from "./StaticField";
 import Temperature, { TemperatureHelp } from "./Temperature";
+import ColorPreview from "./ColorPreview";
 
 export {
     Button,
@@ -14,4 +15,5 @@ export {
     StaticField,
     Temperature,
     TemperatureHelp,
+    ColorPreview,
 }
