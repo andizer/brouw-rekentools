@@ -9,6 +9,7 @@ const classNames = [
     '_handleGravityToPlato',
     '_handleHydrometerTemperature',
     '_handleFermentationRate',
+    '_handleColorConvert',
 ];
 
 classNames.map(

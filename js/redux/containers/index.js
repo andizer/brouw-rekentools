@@ -4,6 +4,7 @@ import CorrectGravity from './CorrectGravity';
 import FermentationRate from './FermentationRate';
 import GravityToPlato from './GravityToPlato';
 import HydrometerTemperature from './HydrometerTemperature';
+import ColorConvert from './ColorConvert';
 
 export default {
     AlcoholPercentage,
@@ -11,4 +12,5 @@ export default {
     FermentationRate,
     GravityToPlato,
     HydrometerTemperature,
+    ColorConvert,
 }
