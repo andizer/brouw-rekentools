@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { FormGroup, } from './form';
 
 import { convertColor } from "../calculation";
-import { NumberField } from "../components";
+import { NumberField, ColorPreview } from "../components";
 import { SCALE_EBC, SCALE_LOVIBOND, SCALE_SRM } from "../calculation/convertColor";
 import { convertToFloat, roundNumber} from "../helpers/format";
 
@@ -73,7 +73,7 @@ const Calculate = ( props ) => {
 
 const ColorConvert = ( props ) => {
     let { colorEBC, colorLovibond, colorSRM } = Calculate( props );
-
+console.log( typeof colorSRM );
     return (
         <div className="form-horizontal">
             <FormGroup id="color-ebc" label="EBC" >
@@ -111,6 +111,7 @@ const ColorConvert = ( props ) => {
                     min="0"
                 />
             </FormGroup>
+            { colorSRM !== '' && <ColorPreview label="Kleur" id="color" color={ colorSRM } /> }
         </div>
     );
 };
