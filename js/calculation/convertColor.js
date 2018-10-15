@@ -1,4 +1,3 @@
-
 export const SCALE_EBC = "EBC";
 export const SCALE_LOVIBOND = "LOVIBOND";
 export const SCALE_SRM = "SRM";
@@ -39,23 +38,3 @@ export const convertColor = ( currentScale, targetScale, value ) => {
 
     throw "Unknown conversion";
 };
-
-/*
-export const convertEBCToSRM = ( EBC ) => {
-    return EBC * 0.508;
-};
-
-export const convertSRMToEBC = ( SRM ) => {
-    return SRM * 1.97;
-};
-
-export const convertLovibondToSRM = ( Lovibond ) => {
-    return (1.3546 * Lovibond ) - 0.76
-};
-
-export const convertSRMtoLovibond = ( SRM ) => {
-    return ( SRM + 0.76) ÷ 1.3546
-};*/
-
-
-
