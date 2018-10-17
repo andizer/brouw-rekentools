@@ -12,16 +12,17 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{
-				test: /\.js$/,
-                exclude: /node_modules/,
-				loader: "babel-loader"
-			},
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: [ 'babel-loader', 'eslint-loader' ]
-            }
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+      },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [ 'babel-loader', 'eslint-loader' ],
+      }
 		]
 	},
 	devServer: {
