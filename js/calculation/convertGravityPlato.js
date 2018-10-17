@@ -4,9 +4,9 @@ import { normalizeGravity } from "../calculation";
  * Converts the given SG value to Plato.
  * @see https://www.winning-homebrew.com/Plato-to-specific-gravity.html
  *
- * @param gravity
+ * @param {number} gravity The specific gravity value.
  *
- * @returns {number}
+ * @returns {number} The Plato value.
  */
 export const convertGravityPlato = function(gravity ) {
     return Math.round( ( 259 - ( 259 / normalizeGravity( gravity ) ) ) );
