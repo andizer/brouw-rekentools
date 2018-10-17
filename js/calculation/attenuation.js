@@ -1,9 +1,11 @@
 
 /**
+ * Calculates the attenuation.
  *
- * @param originalGravity
- * @param finalGravity
- * @returns {*}
+ * @param {number} originalGravity  The original gravity.
+ * @param {number} finalGravity     The final gravity.
+ *
+ * @returns {number} The attenuation.
  */
 export const calculateAttenuation = ( originalGravity, finalGravity ) => {
     return Math.round( ( ( originalGravity - finalGravity ) / ( originalGravity - 1000 ) ) * 100 );

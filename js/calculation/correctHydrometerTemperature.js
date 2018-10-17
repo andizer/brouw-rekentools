@@ -1,5 +1,14 @@
 import { celsiusToFahrenheit } from "../calculation";
 
+/**
+ * Calculates the correct hydrometer temperature.
+ *
+ * @param {number} gravity     The standard gravity value.
+ * @param {number} temperature The current temperature.
+ * @param {number} calibration The calibration value.
+ *
+ * @returns {number} The hydrometer temperature.
+ */
 export const correctHydrometerTemperature = ( gravity, temperature, calibration ) => {
     calibration = celsiusToFahrenheit( calibration );
     temperature = celsiusToFahrenheit( temperature );

@@ -1,5 +1,14 @@
 import { getGravityPoints } from "../calculation";
 
+/**
+ * Calculates the possible gravity correction value and what action to take.
+ *
+ * @param {number} volume           The current volume.
+ * @param {number} gravity          The current gravity.
+ * @param {number} target_gravity   The target gravity.
+ *
+ * @returns {Object} The action to take.
+ */
 export const calculateGravityCorrection = ( volume, gravity, target_gravity ) => {
     let current_gravity        = getGravityPoints( gravity );
     let current_target_gravity = getGravityPoints( target_gravity );
