@@ -73,7 +73,7 @@ const Calculate = ( props ) => {
 
 const ColorConvert = ( props ) => {
     let { colorEBC, colorLovibond, colorSRM } = Calculate( props );
-console.log( typeof colorSRM );
+
     return (
         <div className="form-horizontal">
             <FormGroup id="color-ebc" label="EBC" >

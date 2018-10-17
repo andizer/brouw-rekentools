@@ -9,6 +9,7 @@ const StaticField = ( props ) => {
     );
 };
 
+
 StaticField.defaultProps = {
     className: '',
     value: ''

@@ -22,9 +22,10 @@ StaticFormGroup.defaultProps = {
 };
 
 StaticFormGroup.propTypes = {
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    className: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  value: PropTypes.string,
 };
 
 export default StaticFormGroup;

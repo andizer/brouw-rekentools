@@ -18,10 +18,11 @@ const FormGroup = ( props ) => {
 };
 
 FormGroup.propTypes = {
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    help: PropTypes.string,
-    contextualClass: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  help: PropTypes.string,
+  contextualClass: PropTypes.string,
+  children: PropTypes.any
 };
 
 FormGroup.defaultProps = {

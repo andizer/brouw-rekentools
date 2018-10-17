@@ -12,17 +12,25 @@ const calculate = ( gravity, temperature, calibration ) => {
     temperature = formatAsFloat( temperature );
     calibration = formatAsFloat( calibration );
 
-    if ( ! validateGravity( gravity ) || ! validateTemperature( temperature ) || ! validateTemperature( calibration ) ) {
-        return '';
-    }
+  if ( ! validateGravity( gravity ) ) {
+      return '';
+  }
 
-    const result = correctHydrometerTemperature( gravity, temperature, calibration );
+  if ( ! validateTemperature( temperature ) ) {
+      return '';
+  }
 
-    if ( isNaN( result ) ) {
-        return '';
-    }
+if ( ! validateTemperature( calibration ) ) {
+    return '';
+}
 
-    return Math.round( result ).toString();
+const result = correctHydrometerTemperature( gravity, temperature, calibration );
+
+if ( isNaN( result ) ) {
+    return '';
+}
+
+return Math.round( result ).toString();
 };
 
 const CorrectGravity = ( props ) => {
