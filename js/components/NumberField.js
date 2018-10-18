@@ -25,8 +25,8 @@ NumberField.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  min: PropTypes.string,
-  max: PropTypes.string,
+  min: PropTypes.any,
+  max: PropTypes.any,
   describedBy: PropTypes.string,
 };
 

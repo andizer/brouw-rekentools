@@ -1,29 +1,51 @@
 /* global document */
-import React from 'react';
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-import Calculation from "./composites/Calculation";
+import calculations from './redux/containers';
+import calculateStore from './redux/store';
 
-const classNames = [
-    '_handleAlcoholPercentage',
-    '_handleCorrectGravity',
-    '_handleGravityToPlato',
-    '_handleHydrometerTemperature',
-    '_handleFermentationRate',
-    '_handleColorConvert',
-];
+const App = ( { calculation } ) => {
+  if ( calculation !== null && calculations.hasOwnProperty( calculation ) ) {
+    const SpecificCalculation = calculations[ calculation ];
 
-classNames.map(
-    ( className ) => {
-        let element = document.getElementById( className );
-        if ( element === null ) {
-            return;
-        }
+    return <Fragment>
+      <Provider store={ calculateStore }>
+        <SpecificCalculation type={ calculation } />
+      </Provider>
+    </Fragment>
+  }
 
-        ReactDOM.render(
-            <Calculation type={ className.replace( '_handle', '' ) } />,
-            element
-        );
-    }
+  const calculationKeys = Object.keys( calculations );
+
+  return <Fragment>
+      { calculationKeys.map( ( calculation, key ) => {
+        const SpecificCalculation = calculations[ calculation ];
+
+        return <Provider key={ key } store={ calculateStore }>
+          <SpecificCalculation key={ key } />
+        </Provider>
+      } ) }
+  </Fragment>
+};
+
+App.propTypes = {
+  calculation: PropTypes.string,
+  calculations: PropTypes.array
+
+};
+
+App.defaultProps = {
+  calculation: null,
+  calculations: []
+};
+
+
+let element = document.getElementById( 'app' );
+
+ReactDOM.render(
+  <App calculation={ element.getAttribute( "data-calculation" ) || null } />,
+  element
 );
-
