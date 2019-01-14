@@ -9,9 +9,9 @@ const StaticFormGroup = ( props ) => {
     }
 
     return (
-        <div className="form-group">
-            <Label className="col-sm-4 control-label" htmlFor={ props.id } value={ props.label } />
-            <StaticField value={ props.value } className="col-sm-8 form-control-static" id={ props.id }  />
+        <div className="form-group row">
+            <Label className="col-sm-4 col-form-label" htmlFor={ props.id } value={ props.label } />
+            <StaticField value={ props.value } className="col-sm-8 form-control-plaintext" id={ props.id }  />
         </div>
     );
 };

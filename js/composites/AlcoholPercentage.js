@@ -27,7 +27,7 @@ const AlcoholPercentage = ( props ) => {
     const result = calculate( props.original_gravity, props.final_gravity );
 
     return (
-        <div className="form-horizontal">
+        <React.Fragment>
             <FormGroup id="original_gravity" label="Begin meting" help={ GravityHelp }>
                 <Gravity
                     className="form-control"
@@ -51,7 +51,7 @@ const AlcoholPercentage = ( props ) => {
                 />
             </FormGroup>
             <StaticFormGroup id="alcoholResult" label="Alcoholpercentage" value={ result } />
-        </div>
+        </React.Fragment>
     );
 };
 

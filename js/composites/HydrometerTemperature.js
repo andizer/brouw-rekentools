@@ -39,7 +39,7 @@ const CorrectGravity = ( props ) => {
     let result = calculate( gravity, temperature, calibration );
 
     return (
-        <div className="form-horizontal">
+        <React.Fragment>
             <FormGroup id="gravity" label="Gemeten SG" help={ GravityHelp } >
                 <Gravity
                     className="form-control"
@@ -74,7 +74,7 @@ const CorrectGravity = ( props ) => {
                 />
             </FormGroup>
             <StaticFormGroup id="correctHydrometerTemperatureResult" label="Bijgesteld SG" value={ result } />
-        </div>
+        </React.Fragment>
     );
 };
 

@@ -57,12 +57,12 @@ const ColorPreview = ( props ) => {
         color = 30;
     }
 
-    return <React.Fragment>
-        <Label className="col-sm-4 control-label" htmlFor={ props.id } value={ props.label } />
-        <p id={ props.id } className="col-sm-8 form-control-static">
+    return <div className="form-group row">
+        <Label className="col-sm-4 col-form-label" htmlFor={ props.id } value={ props.label } />
+        <span id={ props.id } className="col-sm-8 form-control-plaintext">
             <ColorPreviewElement color={ colors[ color ] } />
-        </p>
-    </React.Fragment>;
+        </span>
+    </div>;
 };
 
 ColorPreview.propTypes = {

@@ -50,7 +50,7 @@ const CorrectGravity = ( props ) => {
     let result = calculate( volume, measured_gravity, target_gravity );
 
     return (
-        <div className="form-horizontal">
+        <React.Fragment>
             <FormGroup id="volume" label="Volume in liters" help="De waarde liters moet liggen tussen de 1 en 500." >
                 <NumberField
                     className="form-control"
@@ -87,7 +87,7 @@ const CorrectGravity = ( props ) => {
                 />
             </FormGroup>
             <StaticFormGroup id="correctGravityResult" label="Wat te doen" value={ result } />
-        </div>
+        </React.Fragment>
     );
 };
 

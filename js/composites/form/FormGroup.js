@@ -5,14 +5,14 @@ import { Label } from "../../components";
 
 const FormGroup = ( props ) => {
     return (
-        <div className={ "form-group " + props.contextualClass } >
-            <Label className="col-sm-4 control-label" htmlFor={ props.id } value={ props.label } />
+        <div className={ "form-group row " + props.contextualClass } >
+            <Label className="col-sm-4 col-form-label" htmlFor={ props.id } value={ props.label } />
             <div className="col-sm-8">
                 { props.children }
             </div>
-            { props.help && <div id={ "help-" + props.id } className="help-block col-sm-8 col-sm-offset-4">
+            { props.help && <small id={ "help-" + props.id } className="form-text text-muted col-sm-8 offset-md-4">
                 { props.help }
-            </div> }
+            </small> }
         </div>
     );
 };

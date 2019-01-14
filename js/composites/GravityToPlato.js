@@ -29,7 +29,7 @@ const GravityToPlato = ( props ) => {
     const result = calculate( props.gravity );
 
     return (
-        <div className="form-horizontal">
+        <React.Fragment>
             <FormGroup id="gravity" label="Soortelijk gewicht" help={ GravityHelp } >
                 <Gravity
                     className="form-control"
@@ -42,7 +42,7 @@ const GravityToPlato = ( props ) => {
                 />
             </FormGroup>
             <StaticFormGroup id="platoResult" label="Stamwortgehalte" value={ result } />
-        </div>
+        </React.Fragment>
     );
 };
 

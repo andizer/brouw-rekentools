@@ -75,7 +75,7 @@ const ColorConvert = ( props ) => {
     let { colorEBC, colorLovibond, colorSRM } = Calculate( props );
 
     return (
-        <div className="form-horizontal">
+        <React.Fragment>
             <FormGroup id="color-ebc" label="EBC" >
                 <NumberField
                     className="form-control"
@@ -112,7 +112,7 @@ const ColorConvert = ( props ) => {
                 />
             </FormGroup>
             { colorSRM !== '' && <ColorPreview label="Kleur" id="color" color={ colorSRM } /> }
-        </div>
+        </React.Fragment>
     );
 };
 
