@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Gravity, GravityHelp, NumberField } from '../components';
+import { Gravity, GravityHelp } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
 import { calculateGravityCorrection } from "../calculation";
 import {formatAsFloat, formatNumber} from "../helpers/format";
 import { validateGravity } from "../validations";
+import Volume, { VolumeHelp } from '../components/Volume';
 
 const calculate = ( volume, measured_gravity, target_gravity ) => {
     volume           = formatAsFloat( volume );
@@ -51,18 +52,16 @@ const CorrectGravity = ( props ) => {
 
     return (
         <React.Fragment>
-            <FormGroup id="volume" label="Volume in liters" help="De waarde liters moet liggen tussen de 1 en 500." >
-                <NumberField
-                    className="form-control"
-                    id="volume"
-                    name='volume'
-                    onChange={ props.setVolume }
-                    value={props.volume}
-                    placeholder="Volume in liters"
-                    min="1"
-                    max="500"
-                    describedBy={ "help-volume" }
-                />
+            <FormGroup id="volume" label="Volume in liters" help={ VolumeHelp } >
+              <Volume
+                className="form-control"
+                id="volume"
+                onChange={ props.setVolume }
+                name="volume"
+                volume={props.volume}
+                placeholder="Volume in liters"
+                describedBy={ "help-volume" }
+              />
             </FormGroup>
             <FormGroup id="measured_gravity" label="Gemeten SG" help={ GravityHelp }>
                 <Gravity
