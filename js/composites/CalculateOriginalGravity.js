@@ -1,11 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Volume, { VolumeHelp } from '../components/Volume';
-import FormGroup from './form/FormGroup';
-import NumberField from '../components/NumberField';
+import { NumberField, Volume, VolumeHelp } from '../components';
+import { FormGroup, StaticFormGroup } from './form';
+import { calculatePotentialSugars, convertPlatoGravity } from '../calculation';
+import { formatAsFloat } from '../helpers/format';
+
+const calculate = ( efficiency, volume, fermentables ) => {
+  efficiency = formatAsFloat( efficiency );
+  volume     = formatAsFloat( volume );
+
+  if ( efficiency === '' || volume === '' ) {
+    return '';
+  }
+
+  let potentialSugars = 0;
+  fermentables.map( fermentable => {
+    potentialSugars += calculatePotentialSugars( fermentable.weight, fermentable.extract );
+  } );
+
+  if ( potentialSugars === 0 ) {
+    return "";
+  }
+
+  return "" + convertPlatoGravity( potentialSugars * ( efficiency / 100 ) / volume ) + "";
+};
 
 const CalculateOriginalGravity = ( props ) => {
+  const result = calculate( props.efficiency, props.volume, props.fermentables );
+
   return (
     <React.Fragment>
       <FormGroup id="volume" label="Volume (liters)" help={ VolumeHelp }>
@@ -30,6 +53,8 @@ const CalculateOriginalGravity = ( props ) => {
           max={ 100 }
         />
       </FormGroup>
+      <StaticFormGroup id="expectedOriginalGravity" label="Verwacht begin SG" value={ result } />
+
     </React.Fragment>
   );
 };
@@ -39,10 +64,11 @@ CalculateOriginalGravity.propTypes = {
   efficiency: PropTypes.string.isRequired,
   setVolume: PropTypes.func.isRequired,
   setEfficiency: PropTypes.func.isRequired,
+  fermentables: PropTypes.array,
 };
 
 CalculateOriginalGravity.defaultProps = {
-
+  fermentables: [],
 };
 
 export default CalculateOriginalGravity;

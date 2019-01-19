@@ -9,12 +9,12 @@ import GravityToPlato from './GravityToPlato';
 import HydrometerTemperature from './HydrometerTemperature';
 
 export default {
+  CalculateOriginalGravity,
+  Fermentables,
   AlcoholPercentage,
   CorrectGravity,
   FermentationRate,
   GravityToPlato,
   HydrometerTemperature,
   ColorConvert,
-  CalculateOriginalGravity,
-  Fermentables,
 }

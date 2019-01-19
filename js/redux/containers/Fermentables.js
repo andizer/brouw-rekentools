@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Fermentables from '../../composites/Fermentables';
-import { addFermentable } from '../actions/fermentables';
+import { addFermentable, updateFermentable } from '../actions/fermentables';
 import getFermentables from '../selectors/getFermentables';
 
 function mapStateToProps( state ) {
@@ -13,7 +13,18 @@ function mapStateToProps( state ) {
 function mapDispatchToProps( dispatch ) {
   return {
     onAddFermentable: () => {
-      dispatch( addFermentable() );
+      dispatch( addFermentable( {
+        name: '',
+        weight: '',
+        extract: '',
+        color: '',
+        MCU: '',
+        potentialSugars: '',
+      } ) );
+    },
+
+    onFermentableChange: ( id, fermentable ) => {
+      dispatch( updateFermentable( id, fermentable ) );
     },
   }
 }

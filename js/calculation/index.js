@@ -8,16 +8,18 @@ import { getGravityPoints } from "./getGravityPoints";
 import { calculateGravityCorrection } from "./gravityCorrection";
 import { normalizeGravity } from "./normalizeGravity";
 import { convertColor } from "./convertColor";
+import { calculatePotentialSugars } from "./calculatePotentialSugars";
 
 export {
-    calculateAlcoholPercentage,
-    calculateAttenuation,
-    celsiusToFahrenheit,
-    convertGravityPlato,
-    convertPlatoGravity,
-    correctHydrometerTemperature,
-    getGravityPoints,
-    calculateGravityCorrection,
-    normalizeGravity,
-    convertColor,
+  calculateAlcoholPercentage,
+  calculateAttenuation,
+  calculatePotentialSugars,
+  celsiusToFahrenheit,
+  convertGravityPlato,
+  convertPlatoGravity,
+  correctHydrometerTemperature,
+  getGravityPoints,
+  calculateGravityCorrection,
+  normalizeGravity,
+  convertColor,
 }
