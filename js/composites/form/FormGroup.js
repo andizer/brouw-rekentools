@@ -2,7 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { Label } from "../../components";
+<<<<<<< HEAD
 import Help from "./Help";
+=======
+import Help from './Help';
+>>>>>>> c9dac4c (More WIP)
 
 const FormGroup = ( props ) => {
     return (
@@ -13,8 +17,14 @@ const FormGroup = ( props ) => {
             </div>
             { props.help && <Help
               id={ props.id }
+<<<<<<< HEAD
               contextualClass="form__col--8 form__col--offset-4"
               value={ props.help } /> }
+=======
+              contextualClass="col-sm-8 offset-md-4"
+              value={props.help }
+            /> }
+>>>>>>> c9dac4c (More WIP)
         </div>
     );
 };
