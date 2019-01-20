@@ -6,11 +6,11 @@ import {
 } from './gravity';
 
 import {
-   volumeRanges
+  volumeRanges
 } from './volume';
 
 import {
-   weightRanges
+  weightRanges
 } from './weight';
 
 import {
