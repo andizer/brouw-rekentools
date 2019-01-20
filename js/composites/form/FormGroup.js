@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { Label } from "../../components";
+import Help from "./Help";
 
 const FormGroup = ( props ) => {
     return (
@@ -10,9 +11,7 @@ const FormGroup = ( props ) => {
             <div className="col-sm-8">
                 { props.children }
             </div>
-            { props.help && <small id={ "help-" + props.id } className="form-text text-muted col-sm-8 offset-md-4">
-                { props.help }
-            </small> }
+            { props.help && <Help id={ props.id } contextualClass="col-sm-8 offset-md-4" value={ props.help } /> }
         </div>
     );
 };
