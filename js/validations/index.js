@@ -19,7 +19,6 @@ import {
     temperatureRanges
 } from './temperature';
 
-
 export {
     gravityRanges,
     validateGravity,
@@ -30,6 +29,6 @@ export {
     validateTemperature,
     temperatureIsInRange,
 
-    volumeRanges,
+  volumeRanges,
   weightRanges,
 };

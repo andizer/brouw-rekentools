@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Gravity, GravityHelp } from '../components';
+import { Gravity, GravityHelp, Volume, VolumeHelp } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
 import { calculateGravityCorrection } from "../calculation";
 import {formatAsFloat, formatNumber} from "../helpers/format";
 import { validateGravity } from "../validations";
-import Volume, { VolumeHelp } from '../components/Volume';
 
 const calculate = ( volume, measured_gravity, target_gravity ) => {
     volume           = formatAsFloat( volume );
