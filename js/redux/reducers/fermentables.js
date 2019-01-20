@@ -1,4 +1,8 @@
-import { ADD_FERMENTABLE, UPDATE_FERMENTABLE, REFRESH_FERMENTABLES } from '../actions/fermentables';
+import {
+  ADD_FERMENTABLE,
+  UPDATE_FERMENTABLE,
+  REMOVE_FERMENTABLE
+} from '../actions/fermentables';
 
 const INITIAL_STATE = {
   fermentables: []
@@ -19,14 +23,16 @@ const fermentablesReducer = ( state = INITIAL_STATE, action ) => {
       };
 
       return {
-        ...state
-      };
-
-    case REFRESH_FERMENTABLES:
-      return {
         ...state,
         fermentables: [ ...state.fermentables ]
       };
+
+    case REMOVE_FERMENTABLE:
+      return {
+        ...state,
+        fermentables: state.fermentables.filter( ( item, key ) => key !== action.id ),
+      };
+
     default:
       return state;
   }

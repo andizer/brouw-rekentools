@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { updateFermentable, refreshFermentables } from '../actions/fermentables';
+import { updateFermentable, removeFermentable } from '../actions/fermentables';
 import Fermentable from '../../composites/Fermentable';
 import getFermentables from '../selectors/getFermentables';
 
@@ -17,23 +17,23 @@ function mapDispatchToProps( dispatch ) {
   return {
     onChangeName( evt ) {
       dispatch( updateFermentable( this.id, { name : evt.target.value } ) );
-      dispatch( refreshFermentables() );
     },
 
     onChangeWeight( evt ) {
       dispatch( updateFermentable( this.id, { weight : evt.target.value } ) );
-      dispatch( refreshFermentables() );
     },
 
     onChangeExtract( evt ) {
       dispatch( updateFermentable( this.id, { extract : evt.target.value } ) );
-      dispatch( refreshFermentables() );
     },
 
     onChangeColor( evt ) {
       dispatch( updateFermentable( this.id, { color : evt.target.value } ) );
-      dispatch( refreshFermentables() );
     },
+
+    onRemove() {
+      dispatch( removeFermentable( this.id ) );
+    }
   }
 }
 
