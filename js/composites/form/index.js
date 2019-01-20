@@ -1,5 +1,3 @@
-
-
 import FormGroup from './FormGroup';
 import StaticFormGroup from "./StaticFormGroup";
 import Column from './Column';

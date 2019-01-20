@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Help from './Help';
 
 const Column = ( props ) => {
   return (
     <div className={ "col " + props.contextualClass } >
-        { props.children }
-        { props.help && <small id={ "help-" + props.id } className="form-text text-muted">
-          { props.help }
-        </small> }
+      { props.children }
+      { props.help && <Help
+        id={ props.id }
+        value={props.help } /> }
     </div>
   );
 };
