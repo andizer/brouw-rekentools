@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 
 import CorrectGravity from '../../composites/CorrectGravity';
-import { setVolume, setMeasuredGravity, setTargetGravity } from '../actions/correctGravity';
+import { setMeasuredGravity, setTargetGravity } from '../actions/correctGravity';
+import { setVolume } from '../actions/volume';
+import getVolume from '../selectors/getVolume';
 
 function mapStateToProps( state ) {
     return {
-        volume: state.CorrectGravity.volume,
+        volume: getVolume( state ),
         measured_gravity: state.CorrectGravity.measured_gravity,
         target_gravity: state.CorrectGravity.target_gravity,
     };

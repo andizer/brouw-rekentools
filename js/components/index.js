@@ -5,6 +5,7 @@ import NumberField from "./NumberField";
 import StaticField from "./StaticField";
 import Temperature, { TemperatureHelp } from "./Temperature";
 import ColorPreview from "./ColorPreview";
+import Volume, { VolumeHelp } from "./Volume";
 
 export {
     Button,
@@ -16,4 +17,6 @@ export {
     Temperature,
     TemperatureHelp,
     ColorPreview,
+  Volume,
+  VolumeHelp,
 }
