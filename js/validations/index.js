@@ -10,6 +10,10 @@ import {
 } from './volume';
 
 import {
+  weightRanges
+} from './weight';
+
+import {
     temperatureIsInRange,
     validateTemperature,
     temperatureRanges
@@ -26,4 +30,5 @@ export {
     temperatureIsInRange,
 
   volumeRanges,
+  weightRanges,
 };
