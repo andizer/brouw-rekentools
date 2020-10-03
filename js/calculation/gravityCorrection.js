@@ -14,7 +14,7 @@ export const calculateGravityCorrection = ( volume, gravity, target_gravity ) =>
     let current_target_gravity = getGravityPoints( target_gravity );
 
     if ( current_gravity < current_target_gravity ) {
-        let result = volume * ( current_target_gravity - current_gravity ) * 2.604;
+        let result = volume * ( current_target_gravity - current_gravity ) * ( 2.604 / 1000 );
 
         return {
             action: "add_sugar",
