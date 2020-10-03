@@ -6,7 +6,6 @@ import { convertPlatoGravity } from "./convertPlatoGravity";
 import { correctHydrometerTemperature } from "./correctHydrometerTemperature";
 import { getGravityPoints } from "./getGravityPoints";
 import { calculateGravityCorrection } from "./gravityCorrection";
-import { normalizeGravity } from "./normalizeGravity";
 import { convertColor } from "./convertColor";
 
 export {
@@ -18,6 +17,5 @@ export {
     correctHydrometerTemperature,
     getGravityPoints,
     calculateGravityCorrection,
-    normalizeGravity,
     convertColor,
 }

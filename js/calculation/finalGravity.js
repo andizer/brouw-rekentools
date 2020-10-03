@@ -1,5 +1,5 @@
-import { getGravityPoints, normalizeGravity } from "../calculation";
-import { formatAsFloat, formatNumber  } from "../helpers/format";
+import { getGravityPoints } from "../calculation";
+import { formatAsFloat, formatNumber, normalizeGravity  } from "../helpers/format";
 import { validateGravity, validateGravity } from "../validations";
 
 /**

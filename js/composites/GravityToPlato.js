@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { FormGroup, StaticFormGroup } from './form';
-import { convertGravityPlato, normalizeGravity } from '../calculation';
+import { convertGravityPlato } from '../calculation';
+import { normalizeGravity } from '../helpers/format'
 import { Gravity, GravityHelp } from "../components";
 import { validateGravity } from "../validations";
 

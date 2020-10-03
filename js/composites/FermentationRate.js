@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import { Gravity, GravityHelp } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
-import { calculateAttenuation, normalizeGravity } from '../calculation';
-import { formatPercentage } from '../helpers/format';
+import { calculateAttenuation } from '../calculation';
+import { formatPercentage, normalizeGravity } from '../helpers/format';
 import { gravityHasProgress } from "../validations";
 
 const calculate = ( originalGravity, finalGravity ) => {

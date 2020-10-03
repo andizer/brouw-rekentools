@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import { Gravity, GravityHelp, Volume, VolumeHelp } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
-import { calculateGravityCorrection, normalizeGravity } from '../calculation';
-import {formatAsFloat, formatNumber} from "../helpers/format";
+import { calculateGravityCorrection } from '../calculation';
+import {formatAsFloat, formatNumber, normalizeGravity  } from "../helpers/format";
 import { validateGravity } from "../validations";
 
 const calculate = ( volume, measured_gravity, target_gravity ) => {
