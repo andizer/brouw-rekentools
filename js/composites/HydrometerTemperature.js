@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 
 import { Gravity, GravityHelp, Temperature, TemperatureHelp } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
-import { correctHydrometerTemperature } from "../calculation";
+import { correctHydrometerTemperature, normalizeGravity } from '../calculation';
 import { formatAsFloat } from "../helpers/format";
 import { validateTemperature, validateGravity } from "../validations";
 
 const calculate = ( gravity, temperature, calibration ) => {
-    gravity     = formatAsFloat( gravity );
+    gravity     = normalizeGravity( gravity );
     temperature = formatAsFloat( temperature );
     calibration = formatAsFloat( calibration );
 

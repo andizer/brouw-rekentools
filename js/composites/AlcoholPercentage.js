@@ -4,15 +4,10 @@ import PropTypes from "prop-types";
 import { Gravity, GravityHelp } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
 import { calculateAlcoholPercentage, normalizeGravity } from '../calculation';
-import { formatAsFloat, formatNumber } from "../helpers/format";
+import { formatNumber } from "../helpers/format";
 import { gravityHasProgress } from "../validations";
 
 const calculate = ( originalGravity, finalGravity ) => {
-    // First convert any comma's to periods.
-    originalGravity = formatAsFloat( originalGravity );
-    finalGravity    = formatAsFloat( finalGravity );
-
-    // We just want to have 1065 instead of 1.065.
     originalGravity = normalizeGravity( originalGravity );
     finalGravity    = normalizeGravity( finalGravity );
 
