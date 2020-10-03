@@ -8,7 +8,7 @@ import calculations from './redux/containers';
 import calculateStore from './redux/store';
 
 const App = ( { calculation } ) => {
-  if ( calculation !== null && calculations.hasOwnProperty( calculation ) ) {
+  if ( calculation !== null && Object.prototype.hasOwnProperty.call( calculations, calculation ) ) {
     const SpecificCalculation = calculations[ calculation ];
 
     return <Fragment>
