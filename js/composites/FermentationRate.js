@@ -3,24 +3,21 @@ import PropTypes from "prop-types";
 
 import { Gravity, GravityHelp } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
-import { calculateAttenuation } from "../calculation";
-import { formatAsFloat, formatNumber } from "../helpers/format";
+import { calculateAttenuation } from '../calculation';
+import { formatPercentage, normalizeGravity } from '../helpers/format';
 import { gravityHasProgress } from "../validations";
 
 const calculate = ( originalGravity, finalGravity ) => {
-    originalGravity = formatAsFloat( originalGravity );
-    finalGravity    = formatAsFloat( finalGravity );
+    originalGravity = normalizeGravity( originalGravity );
+    finalGravity    = normalizeGravity( finalGravity );
 
     if ( ! gravityHasProgress( originalGravity, finalGravity ) ) {
         return '';
     }
 
     const result = calculateAttenuation( originalGravity, finalGravity );
-    if ( ! isNaN( result ) ) {
-        return formatNumber( result ) + '%';
-    }
 
-    return '';
+    return formatPercentage( result );
 };
 
 const FermentationRate = ( props ) => {

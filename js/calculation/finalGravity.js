@@ -1,17 +1,17 @@
 import { getGravityPoints } from "../calculation";
-import { formatAsFloat, formatNumber  } from "../helpers/format";
+import { formatAsFloat, formatNumber, normalizeGravity  } from "../helpers/format";
 import { validateGravity, validateGravity } from "../validations";
 
 /**
  * Calculates the final gravity value.
  *
  * @param {number} gravity      The current gravity value.
- * @param {number} attenuation  The current attenuation value.
+ * @param {number|string} attenuation  The current attenuation value.
  *
- * @returns {number} The final gravity value.
+ * @returns {number|string} The final gravity value.
  */
 export const calculateFinalGravity = ( gravity, attenuation ) => {
-    gravity     = formatAsFloat( gravity );
+    gravity     = normalizeGravity( gravity );
     attenuation = formatAsFloat( attenuation );
 
     if( ! validateGravity( gravity ) ) {

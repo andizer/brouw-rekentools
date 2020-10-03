@@ -3,18 +3,19 @@ import PropTypes from "prop-types";
 
 import { Gravity, GravityHelp, Volume, VolumeHelp } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
-import { calculateGravityCorrection } from "../calculation";
-import {formatAsFloat, formatNumber} from "../helpers/format";
+import { calculateGravityCorrection } from '../calculation';
+import {formatAsFloat, formatNumber, normalizeGravity  } from "../helpers/format";
 import { validateGravity } from "../validations";
 
 const calculate = ( volume, measured_gravity, target_gravity ) => {
-    volume           = formatAsFloat( volume );
-    measured_gravity = formatAsFloat( measured_gravity );
-    target_gravity   = formatAsFloat( target_gravity );
+    volume = formatAsFloat( volume );
 
     if ( volume === '' || volume < 1 || volume > 500 ) {
         return '';
     }
+
+    measured_gravity = normalizeGravity( measured_gravity );
+    target_gravity   = normalizeGravity( target_gravity );
 
     if ( ! validateGravity( measured_gravity ) || ! validateGravity( target_gravity ) ) {
         return '';
@@ -57,7 +58,7 @@ const CorrectGravity = ( props ) => {
                     id="volume"
                     name='volume'
                     onChange={ props.setVolume }
-                    value={props.volume}
+                    volume={props.volume}
                     placeholder="Volume in liters"
                     describedBy={ "help-volume" }
                 />
