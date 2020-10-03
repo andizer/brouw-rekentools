@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { I18n } from "react-redux-i18n";
 
 import { FormGroup, } from './form';
 
@@ -111,7 +112,7 @@ const ColorConvert = ( props ) => {
                     min="0"
                 />
             </FormGroup>
-            { colorSRM !== '' && <ColorPreview label="Kleur" id="color" color={ colorSRM } /> }
+            { colorSRM !== '' && <ColorPreview label={ I18n.t( 'color' ) } id="color" color={ colorSRM } /> }
         </React.Fragment>
     );
 };

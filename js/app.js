@@ -7,7 +7,13 @@ import { Provider } from 'react-redux';
 import calculations from './redux/containers';
 import calculateStore from './redux/store';
 
-const App = ( { calculation } ) => {
+import { setLocale } from 'react-redux-i18n';
+
+const App = ( { calculation, locale } ) => {
+  if ( locale ) {
+    calculateStore.dispatch( setLocale( locale ) );
+  }
+
   if ( calculation !== null && Object.prototype.hasOwnProperty.call( calculations, calculation ) ) {
     const SpecificCalculation = calculations[ calculation ];
 
@@ -33,13 +39,14 @@ const App = ( { calculation } ) => {
 
 App.propTypes = {
   calculation: PropTypes.string,
-  calculations: PropTypes.array
-
+  calculations: PropTypes.array,
+  locale: PropTypes.string,
 };
 
 App.defaultProps = {
   calculation: null,
-  calculations: []
+  calculations: [],
+  locale: 'nl',
 };
 
 
