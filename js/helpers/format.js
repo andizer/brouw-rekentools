@@ -6,8 +6,7 @@
  * @returns string The converted value.
  */
 export const formatAsFloat = ( value ) => {
-    value = value.replace(/\D/g,'');
-    value = parseFloat( value );
+    value = convertToFloat( value );
 
     if ( isNaN( value ) ) {
         return '';

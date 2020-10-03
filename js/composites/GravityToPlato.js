@@ -2,13 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { FormGroup, StaticFormGroup } from './form';
-import { convertGravityPlato } from "../calculation";
+import { convertGravityPlato, normalizeGravity } from '../calculation';
 import { Gravity, GravityHelp } from "../components";
 import { formatAsFloat } from "../helpers/format";
 import { validateGravity } from "../validations";
 
 const calculate = ( gravity ) => {
+    // First convert any comma's to periods.
     gravity = formatAsFloat( gravity );
+
+    // Then we just want to have 1065 instead of 1.065.
+    gravity = normalizeGravity( gravity );
 
     if ( ! validateGravity( gravity ) ) {
         return '';

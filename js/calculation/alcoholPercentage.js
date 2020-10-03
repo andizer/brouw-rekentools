@@ -1,5 +1,3 @@
-import { normalizeGravity } from '../calculation';
-
 /**
  * Calculates the percentage of alcohol based on the original and final gravity.
  *
@@ -9,5 +7,7 @@ import { normalizeGravity } from '../calculation';
  * @returns {number} The percentage of alcohol.
  */
 export const calculateAlcoholPercentage = ( originalGravity, finalGravity ) => {
-   return ( ( normalizeGravity( originalGravity ) - normalizeGravity( finalGravity ) ) * 131.25 );
+   const difference = originalGravity - finalGravity;
+
+   return ( difference * 131.25 ) / 1000;
 };
