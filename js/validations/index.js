@@ -10,7 +10,8 @@ import {
 } from './volume';
 
 import {
-  weightRanges
+  weightRanges,
+  weightIsInRange
 } from './weight';
 
 import {
@@ -31,4 +32,5 @@ export {
 
   volumeRanges,
   weightRanges,
+  weightIsInRange,
 };

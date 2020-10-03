@@ -52,15 +52,15 @@ const CorrectGravity = ( props ) => {
     return (
         <React.Fragment>
             <FormGroup id="volume" label="Volume in liters" help={ VolumeHelp } >
-                <Volume
-                    className="form-control"
-                    id="volume"
-                    name='volume'
-                    onChange={ props.setVolume }
-                    value={props.volume}
-                    placeholder="Volume in liters"
-                    describedBy={ "help-volume" }
-                />
+              <Volume
+                className="form-control"
+                id="volume"
+                onChange={ props.setVolume }
+                name="volume"
+                volume={props.volume}
+                placeholder="Volume in liters"
+                describedBy={ "help-volume" }
+              />
             </FormGroup>
             <FormGroup id="measured_gravity" label="Gemeten SG" help={ GravityHelp }>
                 <Gravity
