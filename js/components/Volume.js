@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 import { volumeRanges } from "../validations";
 import NumberField from "./NumberField";
 
-export const VolumeHelp = "Het volume moet liggen tussen de " + volumeRanges.min + " en " + volumeRanges.max + ".";
-
 export const Volume = ( props ) => {
   return (
     <NumberField

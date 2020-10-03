@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Gravity, GravityHelp } from '../components';
+import { Gravity } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
 import { calculateAttenuation } from '../calculation';
 import { formatPercentage, normalizeGravity } from '../helpers/format';
-import { gravityHasProgress } from "../validations";
+import { gravityHasProgress, gravityRanges } from '../validations';
+import { I18n } from 'react-redux-i18n';
 
 const calculate = ( originalGravity, finalGravity ) => {
     originalGravity = normalizeGravity( originalGravity );
@@ -21,33 +22,34 @@ const calculate = ( originalGravity, finalGravity ) => {
 };
 
 const FermentationRate = ( props ) => {
-    const result = calculate( props.original_gravity, props.final_gravity );
+    const result      = calculate( props.original_gravity, props.final_gravity );
+    const GravityHelp = I18n.t( 'help.gravity', { min: gravityRanges.min, max: gravityRanges.max } );
 
     return (
         <React.Fragment>
-            <FormGroup id="original_gravity" label="Begin meting" help={ GravityHelp } >
+            <FormGroup id="original_gravity" label={ I18n.t( 'original_gravity' ) } help={ GravityHelp } >
                 <Gravity
                     className="form-control"
                     id="original_gravity"
                     name='original_gravity'
                     onChange={ props.setOriginal }
                     gravity={props.original_gravity}
-                    placeholder="Begin meting"
+                    placeholder={ I18n.t( 'original_gravity' ) }
                     describedBy={ "help-original_gravity" }
                 />
             </FormGroup>
-            <FormGroup id="final_gravity" label="Eind meting" help={ GravityHelp } >
+            <FormGroup id="final_gravity" label={ I18n.t( 'final_gravity' ) } help={ GravityHelp } >
                 <Gravity
                     className="form-control"
                     id='final_gravity'
                     name='final_gravity'
                     onChange={ props.setFinal }
                     gravity={props.final_gravity}
-                    placeholder="Eind meting"
+                    placeholder={ I18n.t( 'final_gravity' ) }
                     describedBy={ "help-final_gravity" }
                 />
             </FormGroup>
-            <StaticFormGroup id="fermentationRate" label="Vergistingsgraad" value={ result } />
+            <StaticFormGroup id="fermentationRate" label={ I18n.t( 'attenuation' ) } value={ result } />
         </React.Fragment>
     );
 };
