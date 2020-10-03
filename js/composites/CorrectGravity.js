@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { I18n } from 'react-redux-i18n';
 
-import { Gravity, Volume } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
 import { calculateGravityCorrection } from '../calculation';
 import {formatAsFloat, formatNumber, normalizeGravity  } from "../helpers/format";
 import { gravityRanges, validateGravity, volumeRanges } from '../validations';
+import { NumberField } from '../components';
 
 const calculate = ( volume, measured_gravity, target_gravity ) => {
     volume = formatAsFloat( volume );
@@ -57,34 +57,40 @@ const CorrectGravity = ( props ) => {
     return (
         <React.Fragment>
             <FormGroup id="volume" label={ I18n.t( 'volume', { volume: I18n.t( 'metric.volume' ) } ) } help={ VolumeHelp } >
-                <Volume
-                    className="form-control"
-                    id="volume"
-                    name='volume'
-                    onChange={ props.setVolume }
-                    volume={props.volume}
-                    placeholder={ I18n.t( 'volume', { volume: I18n.t( 'metric.volume' ) } ) }
-                    describedBy={ "help-volume" }
+                <NumberField
+                  min={ volumeRanges.min }
+                  max={ volumeRanges.max }
+                  className="form-control"
+                  id="volume"
+                  onChange={props.setVolume}
+                  name='volume'
+                  value={ props.volume }
+                  placeholder={ I18n.t( 'volume', { volume: I18n.t( 'metric.volume' ) } ) }
+                  describedBy={ "help-volume" }
                 />
             </FormGroup>
             <FormGroup id="measured_gravity" label={ I18n.t( 'measured_gravity' ) } help={ GravityHelp }>
-                <Gravity
-                    className="form-control"
-                    id="measured_gravity"
-                    name='measured_gravity'
-                    onChange={ props.setMeasuredGravity }
-                    gravity={ props.measured_gravity }
-                    placeholder={ I18n.t( 'measured_gravity' ) }
-                    describedBy={ "help-measured_gravity" }
+                <NumberField
+                  min={ gravityRanges.min }
+                  max={ gravityRanges.max }
+                  className="form-control"
+                  id="measured_gravity"
+                  name='measured_gravity'
+                  onChange={props.setMeasuredGravity}
+                  value={ props.measured_gravity }
+                  placeholder={ I18n.t( 'measured_gravity' ) }
+                  describedBy={ "help-measured_gravity" }
                 />
             </FormGroup>
             <FormGroup id="target_gravity" label={ I18n.t( 'target_gravity' ) } help={ GravityHelp }>
-                <Gravity
+                <NumberField
+                  min={ gravityRanges.min }
+                  max={ gravityRanges.max }
                     className="form-control"
                     id="target_gravity"
                     name='target_gravity'
                     onChange={ props.setTargetGravity }
-                    gravity={ props.target_gravity }
+                    value={ props.target_gravity }
                     placeholder={ I18n.t( 'target_gravity' ) }
                     describedBy={ "help-target_gravity" }
                 />

@@ -5,8 +5,8 @@ import { I18n } from "react-redux-i18n";
 import { FormGroup, StaticFormGroup } from './form';
 import { convertGravityPlato } from '../calculation';
 import { normalizeGravity } from '../helpers/format'
-import { Gravity } from "../components";
 import { gravityRanges, validateGravity } from '../validations';
+import { NumberField } from '../components';
 
 /**
  * Performs the calculation.
@@ -41,14 +41,16 @@ const GravityToPlato = ( props ) => {
     return (
         <React.Fragment>
             <FormGroup id="gravity" label={ I18n.t( 'gravity' ) } help={ GravityHelp } >
-                <Gravity
-                    className="form-control"
-                    id="gravity"
-                    name='gravity'
-                    onChange={ setGravity }
-                    gravity={ gravity }
-                    placeholder={ I18n.t( 'gravity' ) }
-                    describedBy={ "help-gravity" }
+                <NumberField
+                  min={ gravityRanges.min }
+                  max={ gravityRanges.max }
+                  className="form-control"
+                  id="gravity"
+                  name='gravity'
+                  onChange={ setGravity }
+                  value={ gravity }
+                  placeholder={ I18n.t( 'gravity' ) }
+                  describedBy={ "help-gravity" }
                 />
             </FormGroup>
             <StaticFormGroup id="platoResult" label="" value={ result } />

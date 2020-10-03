@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Gravity, Temperature } from '../components';
+import { NumberField } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
 import { correctHydrometerTemperature } from '../calculation';
 import { formatAsFloat, normalizeGravity } from "../helpers/format";
@@ -45,36 +45,42 @@ const CorrectGravity = ( props ) => {
     return (
         <React.Fragment>
             <FormGroup id="gravity" label={ I18n.t( 'measured_gravity' ) } help={ GravityHelp } >
-                <Gravity
-                    className="form-control"
-                    id="gravity"
-                    name='gravity'
-                    onChange={ props.setGravity }
-                    gravity={ props.gravity }
-                    placeholder={ I18n.t( 'measured_gravity' ) }
-                    describedBy={ "help-gravity" }
+                <NumberField
+                  min={ gravityRanges.min }
+                  max={ gravityRanges.max }
+                  className="form-control"
+                  id="gravity"
+                  name='gravity'
+                  onChange={ props.setGravity }
+                  value={ props.gravity }
+                  placeholder={ I18n.t( 'measured_gravity' ) }
+                  describedBy={ "help-gravity" }
                 />
             </FormGroup>
             <FormGroup id="temperature" label={ I18n.t( 'temperature_during_measurement' ) } help={ TemperatureHelp } >
-                <Temperature
-                    className="form-control"
-                    id="temperature"
-                    name='temperature'
-                    onChange={ props.setTemperature }
-                    temperature={ props.temperature }
-                    placeholder={ I18n.t( 'temperature_during_measurement' ) }
-                    describedBy={ "help-temperature" }
+                <NumberField
+                  min={ temperatureRanges.min }
+                  max={ temperatureRanges.max }
+                  className="form-control"
+                  id="temperature"
+                  name='temperature'
+                  onChange={ props.setTemperature }
+                  value={ props.temperature }
+                  placeholder={ I18n.t( 'temperature_during_measurement' ) }
+                  describedBy={ "help-temperature" }
                 />
             </FormGroup>
             <FormGroup id="calibration" label={ I18n.t( 'calibrated_temperature' ) } help={ TemperatureHelp }>
-                <Temperature
-                    className="form-control"
-                    id="calibration"
-                    name='calibration'
-                    onChange={ props.setCalibration }
-                    temperature={ props.calibration }
-                    placeholder={ I18n.t( 'calibrated_temperature' ) }
-                    describedBy={ "help-calibration" }
+                <NumberField
+                  min={ temperatureRanges.min }
+                  max={ temperatureRanges.max }
+                  className="form-control"
+                  id="calibration"
+                  name='calibration'
+                  onChange={ props.setCalibration }
+                  value={ props.calibration }
+                  placeholder={ I18n.t( 'calibrated_temperature' ) }
+                  describedBy={ "help-calibration" }
                 />
             </FormGroup>
             <StaticFormGroup id="correctHydrometerTemperatureResult" label={ I18n.t( 'corrected_gravity' ) } value={ result } />

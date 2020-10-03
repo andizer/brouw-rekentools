@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Gravity } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
 import { calculateAttenuation } from '../calculation';
 import { formatPercentage, normalizeGravity } from '../helpers/format';
 import { gravityHasProgress, gravityRanges } from '../validations';
 import { I18n } from 'react-redux-i18n';
+import { NumberField } from '../components';
 
 const calculate = ( originalGravity, finalGravity ) => {
     originalGravity = normalizeGravity( originalGravity );
@@ -28,25 +28,29 @@ const FermentationRate = ( props ) => {
     return (
         <React.Fragment>
             <FormGroup id="original_gravity" label={ I18n.t( 'original_gravity' ) } help={ GravityHelp } >
-                <Gravity
-                    className="form-control"
-                    id="original_gravity"
-                    name='original_gravity'
-                    onChange={ props.setOriginal }
-                    gravity={props.original_gravity}
-                    placeholder={ I18n.t( 'original_gravity' ) }
-                    describedBy={ "help-original_gravity" }
+                <NumberField
+                  min={ gravityRanges.min }
+                  max={ gravityRanges.max }
+                  className="form-control"
+                  id="original_gravity"
+                  onChange={ props.setOriginal }
+                  name='original_gravity'
+                  value={props.original_gravity}
+                  placeholder={ I18n.t( 'original_gravity' ) }
+                  describedBy={ "help-original_gravity" }
                 />
             </FormGroup>
             <FormGroup id="final_gravity" label={ I18n.t( 'final_gravity' ) } help={ GravityHelp } >
-                <Gravity
-                    className="form-control"
-                    id='final_gravity'
-                    name='final_gravity'
-                    onChange={ props.setFinal }
-                    gravity={props.final_gravity}
-                    placeholder={ I18n.t( 'final_gravity' ) }
-                    describedBy={ "help-final_gravity" }
+                <NumberField
+                  min={ gravityRanges.min }
+                  max={ gravityRanges.max }
+                  className="form-control"
+                  id='final_gravity'
+                  name='final_gravity'
+                  onChange={ props.setFinal }
+                  value={props.final_gravity}
+                  placeholder={ I18n.t( 'final_gravity' ) }
+                  describedBy={ "help-final_gravity" }
                 />
             </FormGroup>
             <StaticFormGroup id="fermentationRate" label={ I18n.t( 'attenuation' ) } value={ result } />
