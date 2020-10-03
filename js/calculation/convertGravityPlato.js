@@ -1,5 +1,3 @@
-import { normalizeGravity } from "../calculation";
-
 /**
  * Converts the given SG value to Plato.
  * @see https://www.winning-homebrew.com/Plato-to-specific-gravity.html
@@ -8,12 +6,9 @@ import { normalizeGravity } from "../calculation";
  *
  * @returns {number} The Plato value.
  */
-export const convertGravityPlato = function(gravity ) {
-    return Math.round( ( 259 - ( 259 / normalizeGravity( gravity ) ) ) );
+export const convertGravityPlato = function( gravity ) {
+    // Now we just want to have 1.065 instead of 1065.
+    gravity = gravity / 1000;
 
-    // 259-(259/SG) & SG=259/(259-degrees P)
-    // (-1 * 616.868) + (1111.14 * sg) – (630.272 * sg^2) + (135.997 * sg^3)
-    // + (plato / (258.6 – ( (plato/258.2) *227.1) ) )
-    // return Math.round( ( 1 + ( value / ( 258.6 - 0.87955 * value ) ) ) * 1000 );
-    //return Math.round( ( value - 1000 ) / 4 );
+    return Math.round( ( 259 - ( 259 / gravity ) ) );
 };
