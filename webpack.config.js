@@ -30,8 +30,10 @@ module.exports = {
 		port: 9000
 	},
 	plugins: [
-		new CopyWebpackPlugin( [ {
-			from: "static",
-		} ] ),
+		new CopyWebpackPlugin( {
+			patterns: [
+				{ from: "static" },
+			]
+		} ),
 	],
 };
