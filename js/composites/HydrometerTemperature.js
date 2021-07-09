@@ -3,9 +3,15 @@ import PropTypes from "prop-types";
 
 import { NumberField } from '../components';
 import { FormGroup, StaticFormGroup } from './form';
-import { correctHydrometerTemperature } from '../calculation';
-import { formatAsFloat, normalizeGravity } from "../helpers/format";
-import { validateTemperature, validateGravity, gravityRanges, temperatureRanges } from '../validations';
+import {
+    correctHydrometerTemperature,
+    formatAsFloat,
+    normalizeGravity,
+    validateGravity,
+    gravityRanges,
+    validateTemperature,
+    temperatureRanges
+} from "@andizer/brew-calculations";
 import { I18n } from 'react-redux-i18n';
 
 const calculate = ( gravity, temperature, calibration ) => {

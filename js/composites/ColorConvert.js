@@ -2,12 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import { I18n } from "react-redux-i18n";
 
-import { FormGroup, } from './form';
+import {
+    convertColor,
+    convertToFloat,
+    roundNumber,
+    SCALE_EBC,
+    SCALE_LOVIBOND,
+    SCALE_SRM,
+} from "@andizer/brew-calculations";
 
-import { convertColor } from "../calculation";
+import { FormGroup, } from './form';
 import { NumberField, ColorPreview } from "../components";
-import { SCALE_EBC, SCALE_LOVIBOND, SCALE_SRM } from "../calculation/convertColor";
-import { convertToFloat, roundNumber} from "../helpers/format";
 
 const determineCurrentScale = ( colorEBC, colorLovibond, colorSRM ) => {
     if ( colorEBC !== '' ) {

@@ -3,9 +3,17 @@ import PropTypes from "prop-types";
 import { I18n } from 'react-redux-i18n';
 
 import { FormGroup, StaticFormGroup } from './form';
-import { calculateGravityCorrection } from '../calculation';
-import {formatAsFloat, formatNumber, normalizeGravity  } from "../helpers/format";
-import { gravityRanges, validateGravity, volumeRanges } from '../validations';
+
+import {
+    calculateGravityCorrection,
+    formatAsFloat,
+    formatNumber,
+    normalizeGravity,
+    gravityRanges,
+    validateGravity,
+    volumeRanges
+} from "@andizer/brew-calculations";
+
 import { NumberField } from '../components';
 
 const calculate = ( volume, measured_gravity, target_gravity ) => {
@@ -23,10 +31,6 @@ const calculate = ( volume, measured_gravity, target_gravity ) => {
     }
 
     let result = calculateGravityCorrection( volume, measured_gravity, target_gravity );
-
-    if ( result === '' ) {
-       return '';
-    }
 
     switch( result.action ) {
         case 'do_nothing' :

@@ -1,12 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { NumberField } from '../components';
 import { I18n } from "react-redux-i18n";
 
+import {
+    convertGravityPlato,
+    normalizeGravity,
+    gravityRanges,
+    validateGravity,
+} from '@andizer/brew-calculations'
+
 import { FormGroup, StaticFormGroup } from './form';
-import { convertGravityPlato } from '../calculation';
-import { normalizeGravity } from '../helpers/format'
-import { gravityRanges, validateGravity } from '../validations';
-import { NumberField } from '../components';
 
 /**
  * Performs the calculation.

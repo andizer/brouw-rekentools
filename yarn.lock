@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@andizer/brew-calculations@https://github.com/andizer/brew-calculations":
+  version "0.1.0"
+  resolved "https://github.com/andizer/brew-calculations#6af399554eadf310d38bda2a05cb83a1994eb7ba"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"

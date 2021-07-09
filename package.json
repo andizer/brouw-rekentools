@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@andizer/brew-calculations": "https://github.com/andizer/brew-calculations",
     "global": "^4.4.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

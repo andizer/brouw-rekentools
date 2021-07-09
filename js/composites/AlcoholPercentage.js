@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 import { I18n } from "react-redux-i18n";
 
 import { FormGroup, StaticFormGroup } from './form';
-import { calculateAlcoholPercentage } from '../calculation';
-import { formatPercentage, normalizeGravity } from "../helpers/format";
-import { gravityHasProgress, gravityRanges } from '../validations';
+import { calculateAlcoholPercentage, formatPercentage, normalizeGravity, gravityHasProgress, gravityRanges } from '@andizer/brew-calculations';
 import { NumberField } from '../components';
 
 const calculate = ( originalGravity, finalGravity ) => {
