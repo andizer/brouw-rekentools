@@ -8,7 +8,13 @@ module.exports = {
 	output: {
 		path: path.resolve( __dirname, "build" ),
 		filename: "[name].js",
-		publicPath: "/",
+		chunkFilename:"[name].chunk.js",
+		publicPath: "./",
+	},
+	optimization: {
+		splitChunks: {
+			chunks: 'all',
+		},
 	},
 	module: {
 		rules: [
