@@ -16,7 +16,7 @@ syncTranslationWithStore( store );
 store.dispatch( loadTranslations( translations ) );
 
 let locale = 'en';
-if ( document.brew_calculations ) {
+if ( document.hasOwnProperty( "brew_calculations" ) && typeof document.brew_calculations !== "undefined" ) {
   locale = document.brew_calculations.locale;
 }
 
