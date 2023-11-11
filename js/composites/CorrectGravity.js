@@ -64,7 +64,6 @@ const CorrectGravity = ( props ) => {
                 <NumberField
                   min={ volumeRanges.min }
                   max={ volumeRanges.max }
-                  className="form-control"
                   id="volume"
                   onChange={props.setVolume}
                   name='volume'
@@ -77,7 +76,6 @@ const CorrectGravity = ( props ) => {
                 <NumberField
                   min={ gravityRanges.min }
                   max={ gravityRanges.max }
-                  className="form-control"
                   id="measured_gravity"
                   name='measured_gravity'
                   onChange={props.setMeasuredGravity}
@@ -90,7 +88,6 @@ const CorrectGravity = ( props ) => {
                 <NumberField
                   min={ gravityRanges.min }
                   max={ gravityRanges.max }
-                    className="form-control"
                     id="target_gravity"
                     name='target_gravity'
                     onChange={ props.setTargetGravity }

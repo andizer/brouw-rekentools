@@ -5,7 +5,7 @@ const NumberField = ( props ) => {
   return (
     <input
       type="number"
-      className={props.className}
+      className={ "form-control " + props.className.trim() }
       id={props.id}
       onChange={props.onChange}
       name={props.name}
@@ -28,6 +28,10 @@ NumberField.propTypes = {
   min: PropTypes.any,
   max: PropTypes.any,
   describedBy: PropTypes.string,
+};
+
+NumberField.defaultProps = {
+  className: ""
 };
 
 export default NumberField;

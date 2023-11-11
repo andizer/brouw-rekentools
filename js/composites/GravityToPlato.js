@@ -48,7 +48,6 @@ const GravityToPlato = ( props ) => {
                 <NumberField
                   min={ gravityRanges.min }
                   max={ gravityRanges.max }
-                  className="form-control"
                   id="gravity"
                   name='gravity'
                   onChange={ setGravity }

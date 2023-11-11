@@ -29,7 +29,6 @@ const AlcoholPercentage = ( props ) => {
                 <NumberField
                   min={ gravityRanges.min }
                   max={ gravityRanges.max }
-                  className="form-control"
                   id="original_gravity"
                   onChange={ props.setOriginal }
                   name='original_gravity'
@@ -42,7 +41,6 @@ const AlcoholPercentage = ( props ) => {
                 <NumberField
                     min={ gravityRanges.min }
                     max={ gravityRanges.max }
-                    className="form-control"
                     id='final_gravity'
                     name='final_gravity'
                     onChange={ props.setFinal }

@@ -84,7 +84,6 @@ const ColorConvert = ( props ) => {
         <React.Fragment>
             <FormGroup id="color-ebc" label="EBC" >
                 <NumberField
-                    className="form-control"
                     id="color-ebc"
                     name='color-ebc'
                     onChange={ props.setColorEBC }
@@ -96,7 +95,6 @@ const ColorConvert = ( props ) => {
             </FormGroup>
             <FormGroup id="color-lovibond" label="°L (Lovibond)" >
                 <NumberField
-                    className="form-control"
                     id="color-lovibond"
                     name='color-lovibond'
                     onChange={ props.setColorLovibond }
@@ -108,7 +106,6 @@ const ColorConvert = ( props ) => {
             </FormGroup>
             <FormGroup id="color-srm" label="SRM" >
                 <NumberField
-                    className="form-control"
                     id="color-srm"
                     name='color-srm'
                     onChange={ props.setColorSRM }

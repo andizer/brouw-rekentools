@@ -54,7 +54,6 @@ const CorrectGravity = ( props ) => {
                 <NumberField
                   min={ gravityRanges.min }
                   max={ gravityRanges.max }
-                  className="form-control"
                   id="gravity"
                   name='gravity'
                   onChange={ props.setGravity }
@@ -67,7 +66,6 @@ const CorrectGravity = ( props ) => {
                 <NumberField
                   min={ temperatureRanges.min }
                   max={ temperatureRanges.max }
-                  className="form-control"
                   id="temperature"
                   name='temperature'
                   onChange={ props.setTemperature }
@@ -80,7 +78,6 @@ const CorrectGravity = ( props ) => {
                 <NumberField
                   min={ temperatureRanges.min }
                   max={ temperatureRanges.max }
-                  className="form-control"
                   id="calibration"
                   name='calibration'
                   onChange={ props.setCalibration }
