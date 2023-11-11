@@ -1,11 +1,11 @@
 import React from 'react';
 
-const AlcoholPercentage = React.lazy(() => import( './AlcoholPercentage' ) );
-const CorrectGravity = React.lazy(() => import( './CorrectGravity' ) );
-const FermentationRate = React.lazy(() => import( './FermentationRate' ) );
-const GravityToPlato = React.lazy(() => import( './GravityToPlato' ) );
-const HydrometerTemperature = React.lazy(() => import( './HydrometerTemperature' ) );
-const ColorConvert = React.lazy(() => import( './ColorConvert' ) );
+import AlcoholPercentage from './AlcoholPercentage';
+import CorrectGravity from './CorrectGravity';
+import FermentationRate from './FermentationRate';
+import GravityToPlato from './GravityToPlato';
+import HydrometerTemperature from './HydrometerTemperature';
+import ColorConvert from './ColorConvert';
 
 export function getCalculation( calculation ) {
     switch( calculation ) {

@@ -1,20 +1,16 @@
 /* global document */
-import React, { Fragment, Suspense } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 
-const Calculation = React.lazy(() => import( './Calculation' ) );
+import Calculation from './Calculation';
 
 const App = ( { calculation, locale } ) => {
   if ( locale ) {
     import( './language/setLanguage' ).then( ( { default: setLanguage } ) => setLanguage( locale ) );
   }
 
-  return <Fragment>
-    <Suspense id={ calculation } fallback={ "Loading..." }>
-      <Calculation calculation={ calculation } />
-    </Suspense>
-  </Fragment>
+  return <Calculation calculation={ calculation } />
 };
 
 App.propTypes = {
