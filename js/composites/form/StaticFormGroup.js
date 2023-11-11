@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Label, StaticField } from "../../components";
+import { StaticField } from "../../components";
+import { FormGroup } from "./index";
 
 const StaticFormGroup = ( props ) => {
     if ( props.value === '' ) {
@@ -9,10 +10,9 @@ const StaticFormGroup = ( props ) => {
     }
 
     return (
-        <div className="form__group">
-            <Label className="form__col--4" htmlFor={ props.id } value={ props.label } />
-            <StaticField value={ props.value } className="form__col--8 form__control form__control--plain" id={ props.id }  />
-        </div>
+        <FormGroup id={ props.id } label={ props.label}>
+            <StaticField value={ props.value } className="form__control form__control--plain" id={ props.id }  />
+        </FormGroup>
     );
 };
 

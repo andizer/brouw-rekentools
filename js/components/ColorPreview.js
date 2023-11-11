@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from 'styled-components';
-import { Label } from "../components";
+import { FormGroup } from "../composites/form";
 
 // Colors with SRM as basis
 const colors = {
@@ -57,12 +57,11 @@ const ColorPreview = ( props ) => {
         color = 30;
     }
 
-    return <div className="form__group">
-        <Label className="form__col--4 col-form-label" htmlFor={ props.id } value={ props.label } />
-        <span id={ props.id } className="form__col--8 form__control form__control--plain">
+    return <FormGroup id={ props.id } label={ props.label }>
+        <span id={ props.id } className="form__control form__control--plain">
             <ColorPreviewElement color={ colors[ color ] } />
         </span>
-    </div>;
+    </FormGroup>;
 };
 
 ColorPreview.propTypes = {
