@@ -1,0 +1,17 @@
+
+.form__help {
+    color: #6c757d;
+    margin-top: 0.25rem;
+    font-size: .875em;
+}
+
+@media (min-width: 576px) {
+    .form__col--8 {
+        flex: 0 0 auto;
+        width: 66.66666667%;
+    }
+
+    .form__col--offset-4 {
+        margin-left: 33.33333333%;
+    }
+}

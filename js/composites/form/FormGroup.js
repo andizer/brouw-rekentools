@@ -13,7 +13,7 @@ const FormGroup = ( props ) => {
             </div>
             { props.help && <Help
               id={ props.id }
-              contextualClass="col-sm-8 offset-md-4"
+              contextualClass="form__col--8 form__col--offset-4"
               value={ props.help } /> }
         </div>
     );
