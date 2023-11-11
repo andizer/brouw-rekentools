@@ -7,8 +7,8 @@ import Help from "./Help";
 const FormGroup = ( props ) => {
     return (
         <div className={ "form-group row " + props.contextualClass } >
-            <Label className="col-sm-4" htmlFor={ props.id } value={ props.label } />
-            <div className="col-sm-8">
+            <Label className="form__col--4" htmlFor={ props.id } value={ props.label } />
+            <div className="form__col--8">
                 { props.children }
             </div>
             { props.help && <Help
