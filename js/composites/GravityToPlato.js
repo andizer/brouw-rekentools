@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { NumberField } from '../components';
-import { I18n } from "react-redux-i18n";
+import { useTranslation } from 'react-i18next';
 
 import {
     convertGravityPlato,
@@ -39,12 +39,13 @@ const calculate = ( gravity ) => {
 const GravityToPlato = ( props ) => {
     const { setGravity, gravity } = props;
     const result = calculate( props.gravity );
+    const { t }  = useTranslation();
 
-    const GravityHelp = I18n.t( 'help.gravity', { min: gravityRanges.min, max: gravityRanges.max } );
+    const GravityHelp = t( "gravityHelp", { min: gravityRanges.min, max: gravityRanges.max } );
 
     return (
         <React.Fragment>
-            <FormGroup id="gravity" label={ I18n.t( 'gravity' ) } help={ GravityHelp } >
+            <FormGroup id="gravity" label={ t( 'gravity' ) } help={ GravityHelp } >
                 <NumberField
                   min={ gravityRanges.min }
                   max={ gravityRanges.max }
@@ -52,7 +53,7 @@ const GravityToPlato = ( props ) => {
                   name='gravity'
                   onChange={ setGravity }
                   value={ gravity }
-                  placeholder={ I18n.t( 'gravity' ) }
+                  placeholder={ t( 'gravity' ) }
                   describedBy={ "help-gravity" }
                 />
             </FormGroup>
