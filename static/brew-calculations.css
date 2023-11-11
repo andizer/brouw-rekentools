@@ -5,6 +5,18 @@
     font-size: .875em;
 }
 
+.form__control--plain {
+    display: block;
+    width: auto;
+    padding: 0.375rem 0 0.375rem calc(1.5rem * .5);
+    margin-bottom: 0;
+    line-height: 1.5;
+    color: #212529;
+    background-color: transparent;
+    border: solid transparent;
+    border-width: 1px 0;
+}
+
 @media (min-width: 576px) {
     .form__col--8 {
         flex: 0 0 auto;
