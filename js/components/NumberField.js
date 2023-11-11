@@ -5,7 +5,7 @@ const NumberField = ( props ) => {
   return (
     <input
       type="number"
-      className={ "form-control " + props.className.trim() }
+      className={ ("form__control " + props.className).trim() }
       id={props.id}
       onChange={props.onChange}
       name={props.name}
