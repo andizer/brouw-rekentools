@@ -46,7 +46,7 @@
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.form__control:focus {
+.form__control :not(.form__control--plain):focus {
     color: #212529;
     background-color: #fff;
     border-color: #86b7fe;
@@ -56,7 +56,7 @@
 
 .form__control--plain {
     width: auto;
-    padding-left: calc(1.5rem * .5);
+    padding-left: 0;
     margin-bottom: 0;
     background-color: transparent;
     border-color: transparent;

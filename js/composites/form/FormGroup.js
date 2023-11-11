@@ -6,7 +6,7 @@ import Help from "./Help";
 
 const FormGroup = ( props ) => {
     return (
-        <div className={ "form__group " + props.contextualClass } >
+        <div className={ ( "form__group " + props.contextualClass ).trim() } >
             <Label className="form__col--4" htmlFor={ props.id } value={ props.label } />
             <div className="form__col--8">
                 { props.children }
