@@ -59,7 +59,7 @@ const ColorPreview = ( props ) => {
 
     return <div className="form-group row">
         <Label className="col-sm-4 col-form-label" htmlFor={ props.id } value={ props.label } />
-        <span id={ props.id } className="form__col--8 form__control--plain">
+        <span id={ props.id } className="form__col--8 form__control form__control--plain">
             <ColorPreviewElement color={ colors[ color ] } />
         </span>
     </div>;
