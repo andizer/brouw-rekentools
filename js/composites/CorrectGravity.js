@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { I18n } from 'react-redux-i18n';
+import { useTranslation } from "react-i18next";
 
 import { FormGroup, StaticFormGroup } from './form';
 
@@ -18,6 +18,7 @@ import { NumberField } from '../components';
 
 const calculate = ( volume, measured_gravity, target_gravity ) => {
     volume = formatAsFloat( volume );
+    const { t } = useTranslation();
 
     if ( volume === '' || volume < 1 || volume > 500 ) {
         return '';
@@ -34,15 +35,15 @@ const calculate = ( volume, measured_gravity, target_gravity ) => {
 
     switch( result.action ) {
         case 'do_nothing' :
-            return I18n.t( 'correct.do_nothing' );
+            return t( 'advice_do_nothing' );
         case "add_water" :
             if ( ! isNaN( result.amount ) ) {
-                return I18n.t( 'correct.add_water', { amount: formatNumber( result.amount ), volume: I18n.t( 'metric.volume', { count: 1 } ) } );
+                return t( 'advice_add_water', { amount: formatNumber( result.amount ), volume: t( 'volume_liter' ) } );
             }
             break;
         case "add_sugar" :
             if ( ! isNaN( result.amount ) ) {
-                return I18n.t( 'correct.add_sugar', { amount: formatNumber( result.amount ), weight: I18n.t( 'metric.weight', { count: 1 } ) } );
+                return t( 'advice_add_sugar', { amount: formatNumber( result.amount ), weight: t( 'kilograms' ) } );
             }
             break;
     }
@@ -53,14 +54,15 @@ const calculate = ( volume, measured_gravity, target_gravity ) => {
 const CorrectGravity = ( props ) => {
     const { volume, measured_gravity, target_gravity } = props;
 
-    let result = calculate( volume, measured_gravity, target_gravity );
+    let result  = calculate( volume, measured_gravity, target_gravity );
+    const { t } = useTranslation();
 
-    const GravityHelp = I18n.t( 'help.gravity', { min: gravityRanges.min, max: gravityRanges.max } );
-    const VolumeHelp  = I18n.t( 'help.volume', { min: volumeRanges.min, max: volumeRanges.max } );
+    const GravityHelp = t( "gravityHelp", { min: gravityRanges.min, max: gravityRanges.max } );
+    const VolumeHelp  = t( 'volumeHelp', { min: volumeRanges.min, max: volumeRanges.max } );
 
     return (
         <React.Fragment>
-            <FormGroup id="volume" label={ I18n.t( 'volume', { volume: I18n.t( 'metric.volume' ) } ) } help={ VolumeHelp } >
+            <FormGroup id="volume" label={ t( 'volume', { volume: t( 'volume_liters' ) } ) } help={ VolumeHelp } >
                 <NumberField
                   min={ volumeRanges.min }
                   max={ volumeRanges.max }
@@ -68,11 +70,11 @@ const CorrectGravity = ( props ) => {
                   onChange={props.setVolume}
                   name='volume'
                   value={ props.volume }
-                  placeholder={ I18n.t( 'volume', { volume: I18n.t( 'metric.volume' ) } ) }
+                  placeholder={ t( 'volume', { volume: t( 'volume_liters' ) } ) }
                   describedBy={ "help-volume" }
                 />
             </FormGroup>
-            <FormGroup id="measured_gravity" label={ I18n.t( 'measured_gravity' ) } help={ GravityHelp }>
+            <FormGroup id="measured_gravity" label={ t( 'measured_gravity' ) } help={ GravityHelp }>
                 <NumberField
                   min={ gravityRanges.min }
                   max={ gravityRanges.max }
@@ -80,11 +82,11 @@ const CorrectGravity = ( props ) => {
                   name='measured_gravity'
                   onChange={props.setMeasuredGravity}
                   value={ props.measured_gravity }
-                  placeholder={ I18n.t( 'measured_gravity' ) }
+                  placeholder={ t( 'measured_gravity' ) }
                   describedBy={ "help-measured_gravity" }
                 />
             </FormGroup>
-            <FormGroup id="target_gravity" label={ I18n.t( 'target_gravity' ) } help={ GravityHelp }>
+            <FormGroup id="target_gravity" label={ t( 'target_gravity' ) } help={ GravityHelp }>
                 <NumberField
                   min={ gravityRanges.min }
                   max={ gravityRanges.max }
@@ -92,11 +94,11 @@ const CorrectGravity = ( props ) => {
                     name='target_gravity'
                     onChange={ props.setTargetGravity }
                     value={ props.target_gravity }
-                    placeholder={ I18n.t( 'target_gravity' ) }
+                    placeholder={ t( 'target_gravity' ) }
                     describedBy={ "help-target_gravity" }
                 />
             </FormGroup>
-            <StaticFormGroup id="correctGravityResult" label={ I18n.t( 'correct.suggested_advise' ) } value={ result } />
+            <StaticFormGroup id="correctGravityResult" label={ t( 'suggested_advise' ) } value={ result } />
         </React.Fragment>
     );
 };
