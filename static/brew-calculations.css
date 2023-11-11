@@ -1,4 +1,19 @@
 
+.form__group {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 calc(-.5 * 1.5rem) 1rem;
+}
+
+.form__group > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(1.5rem * .5);
+    padding-left: calc(1.5rem * .5);
+    margin-top: 0;
+}
+
 .form__help {
     color: #6c757d;
     margin-top: 0.25rem;
