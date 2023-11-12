@@ -1,6 +1,7 @@
 const path = require( "path" );
 const CopyWebpackPlugin = require( "copy-webpack-plugin" );
 
+
 module.exports = {
 	entry: {
 		app: "./js/app.js",
@@ -8,12 +9,7 @@ module.exports = {
 	output: {
 		path: path.resolve( __dirname, "build" ),
 		filename: "[name].js",
-		publicPath: "/",
-	},
-	optimization: {
-		splitChunks: {
-			chunks: 'all',
-		},
+		publicPath: "./",
 	},
 	module: {
 		rules: [
