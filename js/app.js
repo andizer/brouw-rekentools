@@ -3,11 +3,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 
-import Calculation from './Calculation';
+import "./language/i18n";
 
-const App = ( { calculation, locale } ) => {
+import Calculation from './Calculation';
+import { useTranslation } from "react-i18next";
+
+const App = ( { calculation, locale = 'nl' } ) => {
   if ( locale ) {
-    import( './language/setLanguage' ).then( ( { default: setLanguage } ) => setLanguage( locale ) );
+    const { i18n } = useTranslation();
+    i18n.changeLanguage( locale )
   }
 
   return <Calculation calculation={ calculation } />
