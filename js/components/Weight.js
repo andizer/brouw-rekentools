@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -40,3 +41,9 @@ Weight.defaultProps = {
 };
 
 export default Weight;
+=======
+import { weightRanges } from '../validations';
+
+export const WeightHelp = "Het gewicht (gram) moet liggen tussen de " + weightRanges.min +
+  " en " + weightRanges.max + ".";
+>>>>>>> c9dac4c (More WIP)
