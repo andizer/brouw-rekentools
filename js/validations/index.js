@@ -1,4 +1,0 @@
-
-export {
-  weightRanges
-} from './weight';
